@@ -1,0 +1,31 @@
+// https://revealjs.com/themes/
+
+@import "reveal.js/css/theme/template/mixins";
+@import "reveal.js/css/theme/template/settings";
+
+$backgroundColor: var(--ifm-background-color);
+
+$mainFont: var(--ifm-font-family-base);
+$mainFontSize: 42px;
+$mainColor: var(--ifm-font-color-base);
+
+$blockMargin: 10px;
+
+$headingFont: var(--ifm-heading-font-family);
+$headingColor: var(--ifm-heading-color);
+$headingTextTransform: none;
+$headingFontWeight: bold;
+
+$heading1Size: 2.4em;
+$heading2Size: 1.4em;
+$heading3Size: 1.2em;
+$heading4Size: 1em;
+
+$codeFont: var(--ifm-font-family-monospace);
+
+// $linkColor: var(--ifm-link-color);
+$linkColorHover: var(--ifm-color-primary-dark);
+
+$selectionBackgroundColor: var(--ifm-color-primary-dark);
+
+@import "reveal.js/css/theme/template/theme";

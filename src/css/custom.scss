@@ -1,0 +1,183 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+$blue: hsl(205, 100%, 50%);
+$orange: hsl(20, 100%, 50%);
+$red: hsl(0, 100%, 50%);
+$purple: hsl(280, 100%, 50%);
+$green: hsl(120, 50%, 50%);
+$black: hsl(0, 0%, 0%);
+$gray-dark: hsl(0, 0%, 25%);
+$gray: hsl(0, 0%, 50%);
+$gray-light: hsl(0, 0%, 75%);
+$white: hsl(0, 0%, 100%);
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-font-family-base: "Inconsolata Variable", sans-serif;
+  --ifm-font-family-monospace: "Inconsolata Variable", monospace;
+  --ifm-font-weight-bold: 1000;
+  --ifm-table-cell-padding: 0.5rem;
+  font-weight: 500;
+
+  --docusaurus-highlighted-code-line-bg: hsl(0, 0%, 90%);
+  --ifm-background-color: #{$white};
+  --ifm-font-color-base: #{$black};
+  --ifm-color-primary: #{$blue};
+  --ifm-color-primary-dark: hsl(205, 100%, 40%);
+  --ifm-color-secondary: #{$gray};
+  --ifm-color-secondary-contrast-background: hsl(0, 0%, 95%);
+  --ifm-color-secondary-dark: var(--ifm-color-secondary);
+  --ifm-color-success: #{$green};
+  --ifm-color-success-contrast-background: hsl(120, 50%, 95%);
+  --ifm-color-success-dark: var(--ifm-color-success);
+  --ifm-color-info: #{$blue};
+  --ifm-color-info-contrast-background: hsl(205, 100%, 95%);
+  --ifm-color-info-dark: var(--ifm-color-info);
+  --ifm-color-warning: #{$orange};
+  --ifm-color-warning-contrast-background: hsl(20, 100%, 95%);
+  --ifm-color-warning-dark: var(--ifm-color-warning);
+  --ifm-color-danger: #{$red};
+  --ifm-color-danger-contrast-background: hsl(0, 100%, 95%);
+  --ifm-color-danger-dark: var(--ifm-color-danger);
+  --ifm-color-accent: #{$orange};
+  --ifm-color-emphasis: #{$purple};
+  --ifm-color-gray: #{$gray};
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --docusaurus-highlighted-code-line-bg: #{$gray-dark};
+  --ifm-font-color-base: #{$gray-light};
+}
+
+div.reveal {
+  --r-link-color: var(--ifm-link-color);
+  --ifm-list-paragraph-margin: 0;
+  --ifm-table-border-color: #{$black};
+  --ifm-table-border-width: 2px;
+
+  border: 1px solid var(--ifm-color-emphasis-300);
+
+  &.embedded {
+    aspect-ratio: 16 / 10;
+  }
+
+  em {
+    color: var(--ifm-color-emphasis);
+    font-style: normal;
+    font-weight: bold;
+  }
+  pre {
+    font-size: inherit;
+    padding: inherit;
+
+    code {
+      max-height: calc(var(--slide-height) - 3em);
+
+      table {
+        table-layout: auto;
+        border-bottom: unset;
+
+        tr:nth-child(2n) {
+          background-color: unset;
+        }
+      }
+    }
+
+    tr {
+      border: inherit;
+    }
+  }
+  strong {
+    color: var(--ifm-color-accent);
+  }
+
+  .footer,
+  .toc {
+    background-color: unset;
+    color: var(--ifm-color-gray);
+    font-size: small;
+    padding: 0px;
+    position: absolute;
+  }
+  .footer {
+    top: 0px;
+    right: 0px;
+    text-align: right;
+  }
+  .green {
+    color: var(--ifm-color-success);
+    font-weight: bold;
+  }
+  .toc {
+    top: 0px;
+    left: 0px;
+    text-align: left;
+  }
+  .fragment.highlight-red.visible {
+    color: var(--ifm-color-accent);
+  }
+  .mermaid {
+    max-height: var(--slide-height);
+    max-width: var(--slide-width);
+
+    svg {
+      max-width: unset !important;
+      max-height: calc(var(--slide-height) - 6em);
+    }
+  }
+  .slide-number {
+    background-color: unset;
+    color: var(--ifm-color-gray);
+    font-family: unset;
+    padding: 0px;
+  }
+}
+
+tr.current {
+  scroll-margin-top: 32em;
+  &.week {
+    border-left: 4px solid var(--ifm-color-accent);
+    border-right: 4px solid var(--ifm-color-accent);
+  }
+  &.weekend-before {
+    border-top: 2px solid var(--ifm-color-accent);
+  }
+  &.weekend-after {
+    border-bottom: 2px solid var(--ifm-color-accent);
+  }
+}
+
+.navbar__item.ph {
+  font-size: 24px;
+}
+
+@media print {
+  aside,
+  button,
+  details,
+  footer,
+  .alert {
+    display: none !important;
+  }
+
+  table,
+  img,
+  svg,
+  .theme-code-block {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+  }
+}

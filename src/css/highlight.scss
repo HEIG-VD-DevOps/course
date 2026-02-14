@@ -1,0 +1,70 @@
+/*
+Based on https://github.com/highlightjs/highlight.js/blob/main/src/styles/monokai.css
+*/
+
+.hljs {
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.hljs-tag,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-strong,
+.hljs-number,
+.hljs-name {
+  color: var(--ifm-color-danger);
+}
+
+.hljs-code {
+  color: var(--ifm-color-primary);
+}
+
+.hljs-attribute,
+.hljs-attr,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-link {
+  color: var(--ifm-color-emphasis);
+}
+
+.hljs-string,
+.hljs-bullet,
+.hljs-subst,
+.hljs-title,
+.hljs-section,
+.hljs-emphasis,
+.hljs-type,
+.hljs-built_in,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: var(--ifm-color-success);
+}
+
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: var(--ifm-color-primary);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: var(--ifm-color-secondary);
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-selector-id {
+  font-weight: bold;
+}
