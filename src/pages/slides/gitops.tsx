@@ -14,7 +14,7 @@ export default function Gitops(props: { embedded?: boolean }) {
       </Section>
       <Section level={3} title="Historique GitOps">
         <Image
-          src="/img/gitops/Short-Line-Time-backWhite-2022v2.png"
+          src="/course/img/gitops/Short-Line-Time-backWhite-2022v2.png"
           url="https://www.weave.works/technologies/gitops/"
         />
       </Section>
@@ -40,7 +40,7 @@ export default function Gitops(props: { embedded?: boolean }) {
       </Section>
       <Section level={3} title="Outils du GitOps">
         <Image
-          src="/img/gitops/Guide-To-GitOps-Diagrams1.png"
+          src="/course/img/gitops/Guide-To-GitOps-Diagrams1.png"
           url="https://www.weave.works/technologies/gitops/"
         />
       </Section>

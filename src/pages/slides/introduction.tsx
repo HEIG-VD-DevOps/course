@@ -10,9 +10,9 @@ export default function Introduction(props: { embedded?: boolean }) {
       title="DevOps"
       subTitle="Pamela Delgado"
     >
-      <Section level={2} title="Parcours">
+      <Section level={2} title="À propos de moi">
         <Image
-          src="/img/00_aboutme.jpg"
+          src="/course/img/00_aboutme.jpg"
         />
 
       </Section>
