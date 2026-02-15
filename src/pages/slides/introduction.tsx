@@ -1,4 +1,4 @@
-import { List, Section, Text } from "@site/src/components/Deck";
+import {  Image, List, Section, Text } from "@site/src/components/Deck";
 import Mermaid from "@site/src/components/Mermaid";
 import RevealDeck from "@site/src/components/RevealDeck";
 
@@ -8,29 +8,24 @@ export default function Introduction(props: { embedded?: boolean }) {
       embedded={props.embedded}
       name="introduction"
       title="DevOps"
-      subTitle="David Tang"
+      subTitle="Pamela Delgado"
     >
       <Section level={2} title="Parcours">
-        <Mermaid>
-          {`
-          timeline
-            Gymnase d'Yverdon
-            EPFL : BSc & MSc en Informatique
-            Ingénieur informaticien : ELCA (CFF, transN, TPF, RhB, SECUTIX, BCV) : EPFL (ENAC-IT4R)
-            Enseignant : Gymnase Provence : HEIG-VD : Gymnase pour Adultes : HEP Vaud
-          `}
-        </Mermaid>
+        <Image
+          src="/img/00_aboutme.jpg"
+        />
+
       </Section>
       <Section level={2} title="Organisation">
         <List
           fragment
           items={[
-            ["Cours & Laboratoires", ["**Vendredi** de 13h15 à 16h30"]],
+            ["Cours & Laboratoires", ["**Mardi** de 8h30 à 12h00"]],
             [
               "Évaluation",
               [
                 "1 **examen** écrit : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _50%_",
-                "2 **tests** continus : &nbsp;&nbsp;&nbsp; _30%_",
+                "2 **tests** + 1 présentation : &nbsp;&nbsp;&nbsp; _30%_",
                 "3 **laboratoires** notés : _20%_",
               ],
             ],
@@ -61,13 +56,12 @@ export default function Introduction(props: { embedded?: boolean }) {
         <List
           items={[
             [
-              "[heig.davidtang.ch](https://heig.davidtang.ch)",
+              "https://heig-vd-devops.github.io/course",
               ["**Calendrier**", "**Supports** de cours"],
             ],
-            [
-              "[Cyberlearn](https://cyberlearn.hes-so.ch/course/view.php?id=30801)",
+            [ "Teams 26_HEIG-VD_DOP",
               [
-                "DevOps 2024-2025 printemps",
+                "Code pour rejoindre roxslh4",
                 "**Forum** (questions, réponses, annonces)",
               ],
             ],

@@ -75,34 +75,14 @@ const config: Config = {
           position: "left",
         },
         {
-          href: "https://github.com/blueur",
-          position: "right",
-          className: "ph ph-github-logo",
-        },
-        {
-          href: "https://gitlab.com/blueur",
-          position: "right",
-          className: "ph ph-gitlab-logo-simple",
-        },
-        {
-          href: "https://www.instagram.com/blueur.ii/",
-          position: "right",
-          className: "ph ph-instagram-logo",
-        },
-        {
-          href: "https://www.linkedin.com/in/davidtangch/",
-          position: "right",
-          className: "ph ph-linkedin-logo",
-        },
-        {
-          href: "mailto:david.tang@heig-vd.ch",
+          href: "mailto:pamela.delgado@heig-vd.ch",
           position: "right",
           className: "ph ph-envelope-simple",
         },
       ],
     },
     footer: {
-      copyright: `<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://heig-25.davidtang.ch/" target="_blank">DOP</a> © 2025 by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://davidtang.ch" target="_blank">David Tang</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0</a></div>`,
+      copyright: `<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://heig-vd-devops.github.io/course/" target="_blank">DOP</a> © 2025 by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://davidtang.ch" target="_blank">David Tang</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0</a></div>`,
     },
     docs: {
       sidebar: {

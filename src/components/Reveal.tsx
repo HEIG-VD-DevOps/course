@@ -101,7 +101,8 @@ export default function Reveal(
   let fullUrlString = "";
   let printUrlString = "";
   if (isBrowser) {
-    const slideUrl = new URL(`/slides/${props.name}`, window.location.origin);
+    const slideUrl = new URL(`/course/slides/${props.name}`, window.location.origin);
+    //const slideUrl = new URL(`/slides/${props.name}`, window.location.origin);
     const pageUrl = new URL(slideUrl);
     pageUrl.searchParams.append("page", "");
     const printUrl = new URL(slideUrl);

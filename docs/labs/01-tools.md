@@ -9,10 +9,11 @@
 ## Rendu
 
 - Rapport individuel en [Markdown](https://fr.wikipedia.org/wiki/Markdown) à rendre avant le prochain cours
-  - GitHub Classroom : https://classroom.github.com/a/9GFgSJJf
+  - GitHub Classroom : https://classroom.github.com/classrooms/261639960-heig-vd-dop-2526 
+  - GitHub Classroom assignment : https://classroom.github.com/a/9h94KFGc 
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
-- Présentation individuelle à rendre sur Cyberlearn
+- Présentation individuelle à rendre sur GitHub Classroom
   - Nom du fichier : `presentation-prenom-nom.pdf`
 - Délai: 1 semaine
 
@@ -20,8 +21,9 @@
 
 ### Comptes GitHub et GitLab
 
-- Commencer par indiquer ses pseudo [GitHub](https://github.com/) et [GitLab](https://gitlab.com/) sur [Cyberlearn](https://cyberlearn.hes-so.ch/mod/questionnaire/view.php?id=2421655).
+- Commencer par indiquer ses pseudo [GitHub](https://github.com/) et [GitLab](https://gitlab.com/).
   - Créer les comptes si nécessaire et les lier à des adresses e-mail privées afin de ne pas perdre l'accès à la fin de la formation.
+  - Rejoindre le classroom avec votre compte GitHub et associer à votre courriel heig-vd.
 
 ### Estimer son travail
 
@@ -86,7 +88,7 @@ Installer et vérifier les outils suivants (mettre à jour si nécessaire):
   - Depuis le groupe, cliquer sur `New project` > `Create blank project`.
   - Nom du projet : `DOP Python`.
   - Identifiant du projet (laisser par défaut) : `dop-python`.
-- Ajouter `blueur` et `GeraudSilvestri` comme membre du projet.
+- Ajouter `pameladelgado` et `GeraudSilvestri` comme membre du projet.
   - Trouvez le bon [rôle](https://docs.gitlab.com/ee/user/permissions.html) qui permet de mettre à jour les merge requests (MR) sans pouvoir changer les paramètres du projet.
 - Protéger la branche `main`.
   - Personne ne doit pouvoir pousser directement sur la branche.
@@ -178,7 +180,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
   - Pourquoi avoir choisi ce cours/cette formation
   - Ses attentes pour le cours
   - &hellip;
-- Rendre la présentation au format PDF nommé `presentation-prenom-nom.pdf` (avec votre prénom et nom, tout en minuscule, sans accent, sans espace avec des tirets) sur [Cyberlearn](https://cyberlearn.hes-so.ch/mod/assign/view.php?id=2361540).
+- Rendre la présentation au format PDF nommé `presentation-prenom-nom.pdf` (avec votre prénom et nom, tout en minuscule, sans accent, sans espace avec des tirets) sur votre repo [lab01](https://classroom.github.com/a/9h94KFGc).
 
 ### Bonus : Réécriture de Git
 

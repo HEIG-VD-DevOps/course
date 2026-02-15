@@ -1,20 +1,20 @@
-| Date (vendredi) | Semaine | Cours (13:15 - 14:45)                                                                            | Laboratoires (14:55 - 16:30)                                                            |
-| :-------------: | :-----: | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-|   2025-02-21    |   01    | [Introduction](/docs/introduction) + [DevOps](/docs/lessons/devops) + [Code](/docs/lessons/code) | [Outils](/docs/labs/tools)                                                              |
-|   2025-02-28    |   02    | [Artefact](/docs/lessons/artifact) + [Développement](/docs/lessons/development)                  | [Docker](/docs/labs/docker) (**noté**)                                                  |
-|   2025-03-07    |   03    | [Test automatisé](/docs/lessons/test)                                                            | [Compose](/docs/labs/compose)                                                           |
-|   2025-03-14    |   04    | [CI/CD](/docs/lessons/ci-cd)                                                                     | [CI/CD](/docs/labs/cicd)                                                                |
-|   2025-03-21    |   05    | [Orchestration](/docs/lessons/orchestration)                                                     | [CI/CD](/docs/labs/cicd) + [Kubernetes](/docs/labs/kubernetes)                          |
-|   2025-03-28    |   06    | [Contrôle continu](/docs/assessment) (**noté**)                                                  | [Extreme Carpaccio](/docs/labs/extreme-carpaccio) + [Kubernetes](/docs/labs/kubernetes) |
-|   2025-04-04    |   07    | [Déploiement](/docs/lessons/deployment)                                                          | [CI/CD Java](/docs/labs/cicd-java) (**noté**)                                           |
-|   2025-04-11    |   08    | [GitOps](/docs/lessons/gitops)                                                                   | [Helm](/docs/labs/helm)                                                                 |
-|   2025-04-18    |   09    | _Vendredi saint_                                                                                 | _Vendredi saint_                                                                        |
-|   2025-04-25    |         | _Vacances_                                                                                       | _Vacances_                                                                              |
-|   2025-05-02    |   10    | [Observabilité](/docs/lessons/observability)                                                     | [Logs](/docs/labs/logs)                                                                 |
-|   2025-05-09    |   11    | [Télémesure](/docs/lessons/telemetry)                                                            | [Métriques](/docs/labs/metrics)                                                         |
-|   2025-05-16    |   12    | [DevSecOps](/docs/lessons/devsecops)                                                             | [Traces](/docs/labs/traces)                                                             |
-|   2025-05-23    |   13    | [Ingénierie du chaos](/docs/lessons/chaos)                                                       | [Observabilité](/docs/labs/observability) (**noté**)                                    |
-|   2025-05-30    |   14    | _Ascension_                                                                                      | _Ascension_                                                                             |
-|   2025-06-06    |   15    | [Ingénierie de la fiabilité des sites](/docs/lessons/sre)                                        | [Observabilité](/docs/labs/observability) (**noté**)                                    |
-|   2025-06-13    |   16    | [Présentation](/docs/presentation) (**noté**)                                                    | Révision                                                                                |
-|   2025-06-26    |         | [Examen écrit](/docs/exam) (**noté**) en J03 (09:25-10:25)                                       |                                                                                         |
+| Semaine | Date (mardi) | Cours (8:30 - 10:00) | Laboratoire (10:30 - 12:00) | Remarques |
+|--------|--------------|-----------------------|------------------------------|-----------|
+| 01 | 2026-02-17 | [Introduction](/docs/introduction) + [DevOps](/docs/lessons/devops) + [Code](/docs/lessons/code) | [Outils](/docs/labs/tools) | |
+| 02 | 2026-02-24 | [Artefact](/docs/lessons/artifact) + [Développement](/docs/lessons/development) | [Docker](/docs/labs/docker) (**noté**) | |
+| 03 | 2026-03-03 | [Test automatisé](/docs/lessons/test) | [Compose](/docs/labs/compose) | Lu 02 mars 23:59 rendu Labo Docker|
+| 04 | 2026-03-10 | [CI/CD](/docs/lessons/ci-cd) | [CI/CD](/docs/labs/cicd) | |
+| 05 | 2026-03-17 | [Orchestration](/docs/lessons/orchestration) | [CI/CD](/docs/labs/cicd) + [Kubernetes](/docs/labs/kubernetes) | |
+| 06 | 2026-03-24 | [Contrôle continu 1](/docs/assessment#control-continu-1) (**noté**) | [Extreme Carpaccio](/docs/labs/extreme-carpaccio) + [Kubernetes](/docs/labs/kubernetes) | Contrôle continu 1 noté |
+| 07 | 2026-03-31 | [Déploiement](/docs/lessons/deployment) | [CI/CD Java](/docs/labs/cicd-java) (**noté**) | |
+| — | 2026-04-07 | _Vacances_ | _Vacances_ | Lu 06 avril 23:59 rendu Labo CI/CD Java |
+| 08  | 2026-04-14 | [GitOps](/docs/lessons/gitops) | [Helm](/docs/labs/helm) | |
+| 09 | 2026-04-21 | [Observabilité](/docs/lessons/observability) | **Cours** [Télémesure](/docs/lessons/telemetry) | Deux cours |
+| 10 | 2026-04-28 | **Labo** [Logs](/docs/labs/logs) | [Métriques](/docs/labs/metrics) | Deux labos |
+| 11 | 2026-05-05 | [DevSecOps](/docs/lessons/devsecops) | [Traces](/docs/labs/traces) | |
+| 12 | 2026-05-12 | [Contrôle continu 2](/docs/assessment#control-continu-2) (**noté**) | [Préparation présentation](/docs/presentation) | Contrôle continu 2 noté |
+| 13 | 2026-05-19 | [Ingénierie du chaos](/docs/lessons/chaos) | [Observabilité](/docs/labs/observability) (**noté**) | |
+| 14 | 2026-05-26 | [Ingénierie de la fiabilité des sites](/docs/lessons/sre) | [Observabilité](/docs/labs/observability) (**noté**) | |
+| 15 | 2026-06-02 | [Présentation](/docs/presentation) (**noté**) | [Présentation](/docs/presentation) (**noté**) | Lu 01 juin 23:59 rendu Labo Observabilité |
+| 16 | 2026-06-09 | [Présentation](/docs/presentation) (**noté**) | Révision | |
+| —  | 2026-06-XX | [Examen écrit](/docs/exam) (**noté**) | — | |
