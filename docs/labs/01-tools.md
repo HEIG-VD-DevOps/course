@@ -9,7 +9,7 @@
 ## Rendu
 
 - Rapport individuel en [Markdown](https://fr.wikipedia.org/wiki/Markdown) à rendre avant le prochain cours
-  - Assignment : https://classroom.github.com/a/9h94KFGc 
+  - GitHub Classroom assignment : https://classroom.github.com/a/9h94KFGc 
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
 - Présentation individuelle à rendre sur GitHub Classroom

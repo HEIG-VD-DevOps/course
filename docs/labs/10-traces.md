@@ -1,4 +1,4 @@
-git s# Traces
+# Traces
 
 ## Objectifs
 
