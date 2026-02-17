@@ -4,7 +4,7 @@
 
 - Estimer son travail
 - Avoir un environnement de travail fonctionnel
-- Utiliser GitLab
+- Utiliser GitLab et GitHub Classroom
 
 ## Rendu
 
@@ -12,7 +12,7 @@
   - Assignment : https://classroom.github.com/a/9h94KFGc 
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
-- Présentation individuelle à rendre
+- Présentation individuelle à rendre sur GitHub Classroom
   - Nom du fichier : `presentation-prenom-nom.pdf`
 - Délai: 1 semaine
 
@@ -22,7 +22,7 @@
 
 - Commencer par indiquer ses pseudo [GitHub](https://github.com/) et [GitLab](https://gitlab.com/).
   - Créer les comptes si nécessaire et les lier à des adresses e-mail privées afin de ne pas perdre l'accès à la fin de la formation.
-
+  - Rejoindre le classroom avec votre compte GitHub et associer à votre courriel heig-vd.
 
 ### Estimer son travail
 

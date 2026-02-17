@@ -1,4 +1,4 @@
-# Traces
+git s# Traces
 
 ## Objectifs
 
@@ -11,7 +11,6 @@
 ## Rendu
 
 - Rapport individuel en Markdown à rendre avant le prochain cours
-  - GitHub Classroom : https://classroom.github.com/a/rVquW_MY
   - Nom du fichier : `report.md` à la racine du répertoire
   - MR sur votre projet DOP-Python (ajouter le lien dans le rapport)
 - Délai: 1 semaine
