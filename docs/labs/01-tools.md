@@ -9,7 +9,6 @@
 ## Rendu
 
 - Rapport individuel en [Markdown](https://fr.wikipedia.org/wiki/Markdown) à rendre avant le prochain cours
-  - GitHub Classroom : https://classroom.github.com/classrooms/261639960-heig-vd-dop-2526 
   - GitHub Classroom assignment : https://classroom.github.com/a/9h94KFGc 
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
