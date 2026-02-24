@@ -9,7 +9,7 @@
 
 ## Rendu
 
-- Rapport individuel en Markdown à rendre avant le prochain cours
+- Rapport en pairs en Markdown à rendre avant le prochain cours
   - GitHub Classroom : https://classroom.github.com/a/CLvuuIpL
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
@@ -32,7 +32,7 @@
 
 ### Git
 
-- Reprendre son projet GitLab du laboratoire précédent (DOP Python).
+- Reprendre un des deux projet GitLab du laboratoire précédent (DOP Python).
 - Travailler sur une nouvelle branche `feature/02-docker` (à partir de `feature/01-tools` en attendant qu'elle soit merge sur `main`).
   - Faire une merge request (MR) sur `main` une fois terminé et demander une revue.
   - Une fois qu'une MR est acceptée, la merge sur `main`.
