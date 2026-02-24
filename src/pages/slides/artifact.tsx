@@ -128,12 +128,6 @@ export default function Artifact(props: { embedded?: boolean }) {
           url="https://commons.wikimedia.org/wiki/File:Docker-linux-interfaces.svg"
         />
       </Section>
-      <Section level={2} title="Conteneur">
-        <Image
-          src="https://jfrog--c.documentforce.com/servlet/servlet.ImageServer?id=01569000008kqFT&oid=00D20000000M3v0"
-          url="https://jfrog.com/devops-tools/article/understanding-and-building-docker-images/"
-        />
-      </Section>
       <Section level={3} title="Dockerfile">
         <Code>
           {`
