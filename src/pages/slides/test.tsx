@@ -27,7 +27,7 @@ export default function Test(props: { embedded?: boolean }) {
       </Section>
       <Section level={3} title="Quand ?">
         <Image
-          src="https://www.researchgate.net/profile/Maurice-Dawson/publication/255965523/figure/fig1/AS:297976107945984@1448054448271/IBM-System-Science-Institute-Relative-Cost-of-Fixing-Defects.png"
+          src="/course/img/IBM-System-Science-Institute-Relative-Cost-of-Fixing-Defects.png"
           url="https://www.researchgate.net/figure/IBM-System-Science-Institute-Relative-Cost-of-Fixing-Defects_fig1_255965523"
         />
       </Section>
