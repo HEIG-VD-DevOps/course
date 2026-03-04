@@ -193,7 +193,8 @@ Créer une pipeline sur GitLab CI/CD qui :
     - [Container Scanning](https://docs.gitlab.com/ee/user/application_security/container_scanning/)
   - deploy : met à jour les images Docker sur le registry.
 - est déclenchée à chaque push sur n'importe quelle branche.
-  - le stage `deploy` n'est exécuté que sur `main`.
+  - baseline attendu : le stage `deploy` est exécuté sur `main`.
+  - pour valider le chemin complet (build+test+deploy) avant merge, une variante `merge_request_event` est acceptée (voir section ci-dessous).
 - Le frontend et le backend doivent être dans des jobs séparés et en parallèle.
   - Chacun est exécuté uniquement lorsqu'il y a des changements dans son dossier.
     - [Parent-child pipelines](https://docs.gitlab.com/ee/ci/pipelines/pipeline_architectures.html#parent-child-pipelines)
@@ -383,4 +384,67 @@ deploy-backend:
 
 ## Références
 
-- https://gitlab.com/blueur/heig-vd-devops
+- [https://gitlab.com/blueur/heig-vd-devops](https://gitlab.com/blueur/heig-vd-devops)
+
+## Annexe - Validation complète via MR (option recommandée)
+
+Cette annexe garde le flux principal inchangé (deploy sur `main`) et explique la variante minimale pour tester le chemin complet avant merge.
+
+### Pourquoi cette variante
+
+- Avec `deploy` uniquement sur `main`, on ne peut pas valider build+test+deploy dans la MR.
+- La variante permet de tester le publish registry sur mise à jour de MR, puis de revenir au mode strict si souhaité.
+
+### Changements nécessaires
+
+1. Garder les pipelines de push actifs (validation rapide build/test sur toute branche).
+2. Déclencher les jobs `deploy-*` sur `merge_request_event` (mise à jour MR).
+3. Ajouter `.gitlab-ci.yml` dans `rules:changes` des jobs `deploy-*` pour tester aussi les changements CI.
+4. Conserver les règles `changes` par dossier (`frontend/**/*`, `backend/**/*`).
+
+### Exemple de snippets
+
+`workflow` (push + MR) :
+
+```yaml
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "push"
+      when: always
+```
+
+`deploy-frontend` :
+
+```yaml
+deploy-frontend:
+  stage: deploy
+  # ... image/services/before_script/script inchangés ...
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        - frontend/**/*
+        - .gitlab-ci.yml
+      when: on_success
+    - when: never
+```
+
+`deploy-backend` :
+
+```yaml
+deploy-backend:
+  stage: deploy
+  # ... image/services/before_script/script inchangés ...
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        - backend/**/*
+        - .gitlab-ci.yml
+      when: on_success
+    - when: never
+```
+
+### Retour au mode strict (optionnel)
+
+Après validation MR, vous pouvez remettre `deploy` uniquement sur `main` pour un comportement production strict.
