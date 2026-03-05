@@ -9,7 +9,6 @@
 ## Rendu
 
 - Rapport individuel en Markdown à rendre avant le prochain cours
-  - GitHub Classroom : https://classroom.github.com/a/uuvyWOwh
   - Nom du fichier : `report.md` à la racine du répertoire
   - Première partie : Code directement sur GitHub Classroom
   - Deuxième partie : MR sur votre projet DOP-Python (ajouter le lien dans le rapport)
