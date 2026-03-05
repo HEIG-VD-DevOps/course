@@ -12,10 +12,9 @@ import TabItem from '@theme/TabItem';
 ## Rendu
 
 - Rapport individuel en Markdown à rendre avant le prochain cours
-  - GitHub Classroom : https://classroom.github.com/a/zuAA1JDu
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
-- Délai: 2 semaines
+- Délai: 1 semaines
 
 ## Tâches
 
@@ -193,8 +192,7 @@ Créer une pipeline sur GitLab CI/CD qui :
     - [Container Scanning](https://docs.gitlab.com/ee/user/application_security/container_scanning/)
   - deploy : met à jour les images Docker sur le registry.
 - est déclenchée à chaque push sur n'importe quelle branche.
-  - baseline attendu : le stage `deploy` est exécuté sur `main`.
-  - pour valider le chemin complet (build+test+deploy) avant merge, une variante `merge_request_event` est acceptée (voir section ci-dessous).
+  - le stage `deploy` n'est exécuté que sur `main`.
 - Le frontend et le backend doivent être dans des jobs séparés et en parallèle.
   - Chacun est exécuté uniquement lorsqu'il y a des changements dans son dossier.
     - [Parent-child pipelines](https://docs.gitlab.com/ee/ci/pipelines/pipeline_architectures.html#parent-child-pipelines)
@@ -384,67 +382,57 @@ deploy-backend:
 
 ## Références
 
-- [https://gitlab.com/blueur/heig-vd-devops](https://gitlab.com/blueur/heig-vd-devops)
+- https://gitlab.com/blueur/heig-vd-devops
 
-## Annexe - Validation complète via MR (option recommandée)
+## Annexe - Validation complète sans merge dans `main`
 
-Cette annexe garde le flux principal inchangé (deploy sur `main`) et explique la variante minimale pour tester le chemin complet avant merge.
+Pour exécuter le pipeline complet sans merge dans `main`, vous devez modifier votre `.gitlab-ci.yml` pour déclencher les jobs sur chaque push de branche.
 
-### Pourquoi cette variante
+### Modifications à faire dans votre pipeline
 
-- Avec `deploy` uniquement sur `main`, on ne peut pas valider build+test+deploy dans la MR.
-- La variante permet de tester le publish registry sur mise à jour de MR, puis de revenir au mode strict si souhaité.
+1. Activer la création de pipeline sur `push`.
+2. Mettre vos jobs `build-*`, `test-*` et `deploy-*` en exécution sur `push`.
+3. Supprimer (ou adapter) les règles trop restrictives (par ex. `only: main` ou `rules` MR-only).
 
-### Changements nécessaires
-
-1. Garder les pipelines de push actifs (validation rapide build/test sur toute branche).
-2. Déclencher les jobs `deploy-*` sur `merge_request_event` (mise à jour MR).
-3. Ajouter `.gitlab-ci.yml` dans `rules:changes` des jobs `deploy-*` pour tester aussi les changements CI.
-4. Conserver les règles `changes` par dossier (`frontend/**/*`, `backend/**/*`).
-
-### Exemple de snippets
-
-`workflow` (push + MR) :
+### Snippet 1 - `workflow`
 
 ```yaml
 workflow:
   rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-      when: always
     - if: $CI_PIPELINE_SOURCE == "push"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "web"
       when: always
 ```
 
-`deploy-frontend` :
+### Snippet 2 - Règle type pour un job
+
+Appliquez cette logique à tous les jobs du pipeline complet (`build-*`, `test-*`, `deploy-*`).
 
 ```yaml
-deploy-frontend:
-  stage: deploy
-  # ... image/services/before_script/script inchangés ...
+build-backend:
+  stage: build
+  # ...
   rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-      changes:
-        - frontend/**/*
-        - .gitlab-ci.yml
+    - if: $CI_PIPELINE_SOURCE == "push"
       when: on_success
     - when: never
 ```
 
-`deploy-backend` :
+### Snippet 3 - Exemple deploy
 
 ```yaml
 deploy-backend:
   stage: deploy
-  # ... image/services/before_script/script inchangés ...
+  # ...
   rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-      changes:
-        - backend/**/*
-        - .gitlab-ci.yml
+    - if: $CI_PIPELINE_SOURCE == "push"
       when: on_success
     - when: never
 ```
 
-### Retour au mode strict (optionnel)
+### Vérification attendue
 
-Après validation MR, vous pouvez remettre `deploy` uniquement sur `main` pour un comportement production strict.
+- Faire un commit puis `git push` sur une branche `feature/*`.
+- Vérifier que les stages `build`, `test`, puis `deploy` s'exécutent.
+- Vérifier la publication des images dans **Deploy > Container Registry**.
