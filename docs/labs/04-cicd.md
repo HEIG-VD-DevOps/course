@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 ## Rendu
 
 - Rapport individuel en Markdown à rendre avant le prochain cours
+  - GitHub Classroom : https://classroom.github.com/a/aOak-l-G
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
 - Délai: 2 semaines
