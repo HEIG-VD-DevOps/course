@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 - Rapport individuel en Markdown à rendre avant le prochain cours
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
-- Délai: 1 semaines
+- Délai: 1 semaine
 
 ## Tâches
 
