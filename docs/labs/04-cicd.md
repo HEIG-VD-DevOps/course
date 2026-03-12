@@ -405,6 +405,18 @@ environment:
   POSTGRES_DB: ${POSTGRES_DB}
 ```
 
+#### Développement local
+
+En développement local (processus lancés directement, sans Docker), le fichier `.env` n'est pas chargé automatiquement par le processus. Utiliser la commande `make dev-backend-dotenv` qui charge explicitement le `.env` via `python-dotenv` :
+
+```bash
+export POSTGRES_PASSWORD=postgres
+make dev-backend-dotenv
+```
+
+- `POSTGRES_PASSWORD` est défini comme variable d'environnement OS localement — il n'apparaît jamais dans le `.env` versionné.
+- Les autres variables (`POSTGRES_USER`, `POSTGRES_DB`) sont chargées depuis le `.env`.
+
 ## Références
 
 - [https://gitlab.com/blueur/heig-vd-devops](https://gitlab.com/blueur/heig-vd-devops)
