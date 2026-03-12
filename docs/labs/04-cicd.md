@@ -24,11 +24,13 @@ import TabItem from '@theme/TabItem';
   - Découper le travail en tâches pour faciliter l'estimation.
 - Une fois terminé, comparer le temps estimé avec le temps réellement passé.
 
+
 | Tâche      | Temps estimé | Temps passé | Commentaire |
 | ---------- | ------------ | ----------- | ----------- |
 | Estimation | 10m          | 15m         | ...         |
 | ...        | ...          | ...         | ...         |
 | Total      | 2h           | 1h30        | ...         |
+
 
 ### Git
 
@@ -47,8 +49,7 @@ import TabItem from '@theme/TabItem';
   - `httpx` permet de faire des requêtes HTTP dans les tests.
 - Ajouter ou modifier les fichiers suivants (inspirés de cette [documentation](https://fastapi.tiangolo.com/advanced/testing-database/)) :
 
-<Tabs>
-  <TabItem value="main.py" default>
+
 
 ```python title="/backend/backend/main.py" showLineNumbers
 from os import getenv
@@ -71,8 +72,7 @@ app = FastAPI(root_path=getenv("ROOT_PATH"))
 ...
 ```
 
-  </TabItem>
-  <TabItem value="test_main.py">
+
 
 ```python title="/backend/backend/tests/test_main.py" showLineNumbers
 from random import choices, uniform
@@ -171,8 +171,7 @@ def test_read_deleted_empty_products():
     assert response.json() == []
 ```
 
-  </TabItem>
-</Tabs>
+
 
 - Pour lancer les tests : `poetry run pytest --cov`
 
@@ -212,9 +211,7 @@ Commencer par le frontend (commencer le script par `cd frontend/`) :
     - `echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin`
   - [Docker Layer Caching](https://docs.gitlab.com/ee/ci/docker/docker_layer_caching.html)
 
-<details>
-  <summary>Solution `.gitlab-ci.yml`</summary>
-  <div>
+Solution `.gitlab-ci.yml`
 
 ```yaml
 build-frontend:
@@ -253,8 +250,7 @@ deploy-frontend:
     - docker push $REGISTRY_IMAGE:latest
 ```
 
-  </div>
-</details>
+
 
 Puis le backend (similairement au frontend) :
 
@@ -304,9 +300,7 @@ test-backend:
   - [Test coverage visualization](https://docs.gitlab.com/ee/ci/testing/test_coverage_visualization.html#python-example)
 - Le job `deploy-backend` est très similaire au job `deploy-frontend`.
 
-<details>
-  <summary>Solution `.gitlab-ci.yml`</summary>
-  <div>
+Solution `.gitlab-ci.yml`
 
 ```yaml
 build-backend:
@@ -366,8 +360,7 @@ deploy-backend:
     - docker push $REGISTRY_IMAGE:latest
 ```
 
-  </div>
-</details>
+
 
 - Effectuer le stage `deploy` uniquement sur la branche `main`.
   - [rules](https://docs.gitlab.com/ee/ci/yaml/#rules)
@@ -380,6 +373,39 @@ deploy-backend:
   - [SAST](https://docs.gitlab.com/ee/user/application_security/sast/)
   - [Container Scanning](https://docs.gitlab.com/ee/user/application_security/container_scanning/)
 
+### Gestion des secrets
+
+Le fichier `.env` doit être versionné dans le dépôt avec uniquement les variables non-secrètes. Le mot de passe de la base de données doit être géré comme un secret GitLab CI/CD et injecté dynamiquement dans le pipeline.
+
+- Définir le fichier `.env` à la racine du projet avec les variables non-secrètes uniquement :
+
+```bash
+POSTGRES_USER=postgres
+POSTGRES_DB=postgres
+```
+
+- Créer une [variable CI/CD masquée](https://docs.gitlab.com/ee/ci/variables/#add-a-cicd-variable-to-a-project) `POSTGRES_PASSWORD` dans les paramètres du projet GitLab (`Settings > CI/CD > Variables`).
+  - Activer l'option **Masked** pour que la valeur n'apparaisse jamais dans les logs.
+- Dans les jobs `build-backend` et `test-backend`, ajouter `POSTGRES_PASSWORD` au fichier `.env` en début de `before_script` :
+
+```yaml
+before_script:
+  - echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> .env
+  - cd backend/
+  - ...
+```
+
+- Dans le `compose.yml`, référencer les variables depuis `.env` plutôt que de les coder en dur :
+  - Utiliser `${POSTGRES_PASSWORD:-postgres}` comme valeur de repli pour le développement local.
+
+```yaml
+environment:
+  POSTGRES_USER: ${POSTGRES_USER}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+  POSTGRES_DB: ${POSTGRES_DB}
+```
+
 ## Références
 
-- https://gitlab.com/blueur/heig-vd-devops
+- [https://gitlab.com/blueur/heig-vd-devops](https://gitlab.com/blueur/heig-vd-devops)
+
