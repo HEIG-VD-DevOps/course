@@ -375,22 +375,31 @@ deploy-backend:
 
 ### Gestion des secrets
 
-Le fichier `.env` doit être versionné dans le dépôt avec uniquement les variables non-secrètes. Le mot de passe de la base de données doit être géré comme un secret GitLab CI/CD et injecté dynamiquement dans le pipeline.
+Le fichier `.env` ne doit jamais être versionné car il contient des secrets. Versionner à la place un fichier `.env.example` avec les variables non-secrètes comme modèle.
 
-- Définir le fichier `.env` à la racine du projet avec les variables non-secrètes uniquement :
+- Ajouter `.env` au `.gitignore` :
+
+```
+# Environment
+.env
+```
+
+- Créer le fichier `.env.example` à la racine du projet avec les variables non-secrètes uniquement :
 
 ```bash
 POSTGRES_USER=postgres
 POSTGRES_DB=postgres
+# Secret — add locally, never commit
+POSTGRES_PASSWORD=changeme
 ```
 
 - Créer une [variable CI/CD masquée](https://docs.gitlab.com/ee/ci/variables/#add-a-cicd-variable-to-a-project) `POSTGRES_PASSWORD` dans les paramètres du projet GitLab (`Settings > CI/CD > Variables`).
   - Activer l'option **Masked** pour que la valeur n'apparaisse jamais dans les logs.
-- Dans les jobs `build-backend` et `test-backend`, ajouter `POSTGRES_PASSWORD` au fichier `.env` en début de `before_script` :
+- Dans les jobs `build-backend` et `test-backend`, générer le `.env` depuis `.env.example` et y injecter le secret en début de `before_script` :
 
 ```yaml
 before_script:
-  - echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> .env
+  - cp .env.example .env && echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> .env
   - cd backend/
   - ...
 ```
@@ -407,15 +416,19 @@ environment:
 
 #### Développement local
 
-En développement local (processus lancés directement, sans Docker), le fichier `.env` n'est pas chargé automatiquement par le processus. Utiliser la commande `make dev-backend-dotenv` qui charge explicitement le `.env` via `python-dotenv` :
+Copier `.env.example` en `.env` et y ajouter le mot de passe :
 
 ```bash
-export POSTGRES_PASSWORD=postgres
-make dev-backend-dotenv
+cp .env.example .env
+echo "POSTGRES_PASSWORD=postgres" >> .env
 ```
 
-- `POSTGRES_PASSWORD` est défini comme variable d'environnement OS localement — il n'apparaît jamais dans le `.env` versionné.
-- Les autres variables (`POSTGRES_USER`, `POSTGRES_DB`) sont chargées depuis le `.env`.
+- Pour Docker Compose, le `.env` est chargé automatiquement.
+- Pour lancer le backend en local (sans Docker), utiliser `make dev-backend-dotenv` qui charge explicitement le `.env` via `python-dotenv` :
+
+```bash
+make dev-backend-dotenv
+```
 
 ## Références
 
