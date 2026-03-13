@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 - Rapport individuel en Markdown à rendre avant le prochain cours
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
-- Délai: 2 semaines
+- Délai: 1 semaine
 
 ## Tâches
 
@@ -414,6 +414,59 @@ Le `.env` versionné fonctionne tel quel pour le développement local et Docker 
 ```bash
 make dev-backend-dotenv
 ```
+
+## Annexe - Validation complète sans merge dans `main`
+
+Pour exécuter le pipeline complet sans merge dans `main`, vous devez modifier votre `.gitlab-ci.yml` pour déclencher les jobs sur chaque push de branche.
+
+### Modifications à faire dans votre pipeline
+
+1. Activer la création de pipeline sur `push`.
+2. Mettre vos jobs `build-*`, `test-*` et `deploy-*` en exécution sur `push`.
+3. Supprimer (ou adapter) les règles trop restrictives (par ex. `only: main` ou `rules` MR-only).
+
+### Snippet 1 - `workflow`
+
+```yaml
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "web"
+      when: always
+```
+
+### Snippet 2 - Règle type pour un job
+
+Appliquez cette logique à tous les jobs du pipeline complet (`build-*`, `test-*`, `deploy-*`).
+
+```yaml
+build-backend:
+  stage: build
+  # ...
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+      when: on_success
+    - when: never
+```
+
+### Snippet 3 - Exemple deploy
+
+```yaml
+deploy-backend:
+  stage: deploy
+  # ...
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+      when: on_success
+    - when: never
+```
+
+### Vérification attendue
+
+- Faire un commit puis `git push` sur une branche `feature/*`.
+- Vérifier que les stages `build`, `test`, puis `deploy` s'exécutent.
+- Vérifier la publication des images dans **Deploy > Container Registry**.
 
 ## Références
 
