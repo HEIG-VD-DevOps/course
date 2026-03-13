@@ -380,9 +380,40 @@ deploy-backend:
   - [SAST](https://docs.gitlab.com/ee/user/application_security/sast/)
   - [Container Scanning](https://docs.gitlab.com/ee/user/application_security/container_scanning/)
 
-## Références
+### Gestion des secrets
 
-- https://gitlab.com/blueur/heig-vd-devops
+Le fichier `.env` est versionné avec un mot de passe non-secret destiné au développement local. En CI/CD, la variable GitLab masquée `POSTGRES_PASSWORD` est injectée dans l'environnement du runner et **prend automatiquement le dessus** sur la valeur du `.env`.
+
+- Versionner le fichier `.env` avec toutes les variables, incluant un mot de passe local non-secret :
+
+```bash
+POSTGRES_USER=postgres
+POSTGRES_DB=postgres
+POSTGRES_PASSWORD=postgres
+```
+
+- Créer une [variable CI/CD masquée](https://docs.gitlab.com/ee/ci/variables/#add-a-cicd-variable-to-a-project) `POSTGRES_PASSWORD` dans les paramètres du projet GitLab (`Settings > CI/CD > Variables`).
+  - Activer l'option **Masked** pour que la valeur n'apparaisse jamais dans les logs.
+  - La variable d'environnement du runner override celle du `.env` — aucune modification du fichier n'est nécessaire en pipeline.
+- Dans le `compose.yml`, référencer les variables depuis `.env` plutôt que de les coder en dur :
+
+```yaml
+environment:
+  POSTGRES_USER: ${POSTGRES_USER}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  POSTGRES_DB: ${POSTGRES_DB}
+```
+
+#### Développement local
+
+Le `.env` versionné fonctionne tel quel pour le développement local et Docker Compose — aucune configuration supplémentaire n'est nécessaire.
+
+- Pour Docker Compose, le `.env` est chargé automatiquement.
+- Pour lancer le backend en local (sans Docker), utiliser `make dev-backend-dotenv` qui charge explicitement le `.env` via `python-dotenv` :
+
+```bash
+make dev-backend-dotenv
+```
 
 ## Annexe - Validation complète sans merge dans `main`
 
@@ -436,3 +467,8 @@ deploy-backend:
 - Faire un commit puis `git push` sur une branche `feature/*`.
 - Vérifier que les stages `build`, `test`, puis `deploy` s'exécutent.
 - Vérifier la publication des images dans **Deploy > Container Registry**.
+
+## Références
+
+- [https://gitlab.com/blueur/heig-vd-devops](https://gitlab.com/blueur/heig-vd-devops)
+
