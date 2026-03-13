@@ -24,13 +24,11 @@ import TabItem from '@theme/TabItem';
   - Découper le travail en tâches pour faciliter l'estimation.
 - Une fois terminé, comparer le temps estimé avec le temps réellement passé.
 
-
 | Tâche      | Temps estimé | Temps passé | Commentaire |
 | ---------- | ------------ | ----------- | ----------- |
 | Estimation | 10m          | 15m         | ...         |
 | ...        | ...          | ...         | ...         |
 | Total      | 2h           | 1h30        | ...         |
-
 
 ### Git
 
@@ -49,7 +47,8 @@ import TabItem from '@theme/TabItem';
   - `httpx` permet de faire des requêtes HTTP dans les tests.
 - Ajouter ou modifier les fichiers suivants (inspirés de cette [documentation](https://fastapi.tiangolo.com/advanced/testing-database/)) :
 
-
+<Tabs>
+  <TabItem value="main.py" default>
 
 ```python title="/backend/backend/main.py" showLineNumbers
 from os import getenv
@@ -72,7 +71,8 @@ app = FastAPI(root_path=getenv("ROOT_PATH"))
 ...
 ```
 
-
+  </TabItem>
+  <TabItem value="test_main.py">
 
 ```python title="/backend/backend/tests/test_main.py" showLineNumbers
 from random import choices, uniform
@@ -171,7 +171,8 @@ def test_read_deleted_empty_products():
     assert response.json() == []
 ```
 
-
+  </TabItem>
+</Tabs>
 
 - Pour lancer les tests : `poetry run pytest --cov`
 
@@ -211,7 +212,9 @@ Commencer par le frontend (commencer le script par `cd frontend/`) :
     - `echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin`
   - [Docker Layer Caching](https://docs.gitlab.com/ee/ci/docker/docker_layer_caching.html)
 
-Solution `.gitlab-ci.yml`
+<details>
+  <summary>Solution `.gitlab-ci.yml`</summary>
+  <div>
 
 ```yaml
 build-frontend:
@@ -250,7 +253,8 @@ deploy-frontend:
     - docker push $REGISTRY_IMAGE:latest
 ```
 
-
+  </div>
+</details>
 
 Puis le backend (similairement au frontend) :
 
@@ -300,7 +304,9 @@ test-backend:
   - [Test coverage visualization](https://docs.gitlab.com/ee/ci/testing/test_coverage_visualization.html#python-example)
 - Le job `deploy-backend` est très similaire au job `deploy-frontend`.
 
-Solution `.gitlab-ci.yml`
+<details>
+  <summary>Solution `.gitlab-ci.yml`</summary>
+  <div>
 
 ```yaml
 build-backend:
@@ -360,7 +366,8 @@ deploy-backend:
     - docker push $REGISTRY_IMAGE:latest
 ```
 
-
+  </div>
+</details>
 
 - Effectuer le stage `deploy` uniquement sur la branche `main`.
   - [rules](https://docs.gitlab.com/ee/ci/yaml/#rules)
