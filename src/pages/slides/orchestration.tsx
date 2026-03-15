@@ -25,6 +25,9 @@ export default function Orchestration(props: { embedded?: boolean }) {
           src="https://kubernetes.io/images/docs/Container_Evolution.svg"
           url="https://kubernetes.io/docs/concepts/overview/"
         />
+        <aside className="notes">
+          ensure that there is no downtime
+        </aside>
       </Section>
       <Section level={2} title="Orchestrateurs"></Section>
       <Section level={3} title="Docker Compose">

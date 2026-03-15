@@ -11,6 +11,7 @@ import { MermaidConfig } from "mermaid";
 import { PropsWithChildren, useEffect, useRef } from "react";
 import { Api } from "reveal.js";
 import Markdown from "reveal.js/plugin/markdown/markdown";
+import RevealNotes from "reveal.js/plugin/notes/notes";
 
 export const mermaidConfig: MermaidConfig = {
   sequence: {
@@ -54,11 +55,12 @@ export default function Reveal(
     Promise.all([
       import("reveal.js"),
       import("reveal.js/plugin/highlight/highlight"),
+      import("reveal.js/plugin/notes/notes"),
     ]).then(([reveal, highlight]) => {
       deckRef.current = new reveal.default(divRef.current!, {
         width: 1440,
         height: 900,
-        plugins: [Markdown, highlight.default, Footer, Link, Toc],
+        plugins: [Markdown, highlight.default, Footer, Link, Toc, RevealNotes],
         autoAnimateDuration: 0.25,
         autoAnimateUnmatched: false,
         controlsLayout: "edges",
