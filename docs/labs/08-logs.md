@@ -11,6 +11,7 @@
 ## Rendu
 
 - Rapport individuel en Markdown à rendre avant le prochain cours
+  - GitHub Classroom : https://classroom.github.com/a/HUcy22Nz
   - Nom du fichier : `report.md` à la racine du répertoire
   - Code directement sur GitHub Classroom
 - Délai: 1 semaine
