@@ -2,6 +2,7 @@ import { useLocation } from "@docusaurus/router";
 import { Section } from "@site/src/components/Deck";
 import Reveal from "@site/src/components/Reveal";
 import { PropsWithChildren } from "react";
+import RevealNotes from 'reveal.js/plugin/notes/notes';
 
 export default function RevealDeck(
   props: PropsWithChildren<{

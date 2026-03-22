@@ -19,6 +19,9 @@ export default function CiCd(props: { embedded?: boolean }) {
             "_CD_: Continuous **Deployment** (Déploiement continu)",
           ]}
         />
+        <aside className="notes">
+          Deux CDs
+        </aside>
       </Section>
       <Section level={2} title="Continuous Integration">
         <List
@@ -83,6 +86,10 @@ export default function CiCd(props: { embedded?: boolean }) {
           src="https://wac-cdn.atlassian.com/dam/jcr:b2a6d1a7-1a60-4c77-aa30-f3eb675d6ad6/ci%20cd%20asset%20updates%20.007.png"
           url="https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment"
         />
+        <aside  className="notes">
+          Smoke tests: subset of test cases, cover most important functionality of a component or system, 
+          used to aid assessment of whether main functions of the software appear to work correctly
+        </aside>
       </Section>
       <Section level={3} title="CI/CD">
         <Mermaid>
@@ -118,6 +125,10 @@ export default function CiCd(props: { embedded?: boolean }) {
             end
           `}
         </Mermaid>
+        <aside className="notes">
+          JFrog Artifactory
+        </aside>
+
       </Section>
       <Section level={2} title="Outils">
         <List
@@ -140,6 +151,9 @@ export default function CiCd(props: { embedded?: boolean }) {
             ],
           ]}
         />
+        <aside className="notes">
+          Jenkins deployed locally (maintenance). Steep learning curve. Integrations + plugins (flexibility).
+        </aside>
       </Section>
       <Section level={2} title="GitLab CI/CD">
         <Image
@@ -212,6 +226,11 @@ export default function CiCd(props: { embedded?: boolean }) {
             ],
           ]}
         />
+        <aside className="notes">
+          If all jobs in a stage succeed, the pipeline moves on to the next stage. 
+          If any job in a stage fails, the next stage is not (usually) executed and the pipeline ends early.
+          GitLab has some predefined variables
+        </aside>
       </Section>
       <Section level={3} title="Variables">
         <List
@@ -252,6 +271,13 @@ export default function CiCd(props: { embedded?: boolean }) {
             "[Job artifacts](https://docs.gitlab.com/ee/ci/jobs/job_artifacts.html)",
           ]}
         />
+        <aside className="notes">
+          ex pdf: 
+              script: xelatex mycv.tex
+              artifacts:
+                paths:
+                  - mycv.pdf
+        </aside>
       </Section>
       <Section level={3} title="Cache">
         <List
@@ -265,6 +291,14 @@ export default function CiCd(props: { embedded?: boolean }) {
             "Utilisé pour les **dépendances** (node_modules, .m2, etc.)",
           ]}
         />
+        <aside className="notes">
+            cache:
+            - key:
+            files:
+              - yarn.lock
+      paths:
+        - .yarn-cache/
+        </aside>
       </Section>
       <Section level={3} title="DRY">
         <List
