@@ -113,6 +113,10 @@ export default function Orchestration(props: { embedded?: boolean }) {
             "**Mesos** : par **Apache**",
           ]}
         />
+        <aside className="notes">
+          nomad: k8s-like orchestration wo operational overhead, especially if you're already in the HashiCorp ecosystem
+          mesos (complex): integration with apache spark, storm, etc
+        </aside>
       </Section>
       <Section level={3} title="Rancher">
         <List
