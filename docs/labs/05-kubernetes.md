@@ -3,7 +3,7 @@
 ## Objectifs
 
 - Estimer son travail
-- Accéder au cluster Kubernetes du cours
+- Accéder au cluster Kubernetes du cours ([Rancher](https://rke2.iict-heig-vd.in))
 - Déployer une application sur Kubernetes
 - Créer un fichier `deployment.yaml` pour déployer l'application
 
@@ -33,6 +33,8 @@
 
 ### Accéder au cluster du cours
 
+> Il est possible de commencer les exercices avec minikube en local, mais le rendu final doit être réalisé sur le cluster [Rancher](https://rke2.iict-heig-vd.in) du cours.
+
 - Suivre les instructions de configuration du cluster du cours : [/docs/tools/kubernetes](/docs/tools/kubernetes)
   - Accéder au réseau HEIG-VD (ou VPN)
   - Récupérer le `KubeConfig` depuis Rancher
@@ -43,10 +45,6 @@
   - `kubectl auth can-i create deployment`
   - `kubectl auth can-i create service`
   - `kubectl auth can-i create ingress`
-- Regarder les logs (au niveau du pod) :
-  - Dans le dashboard Rancher, ouvrir un pod puis utiliser `View logs` / `Exec into pod`
-  - En CLI : `kubectl logs <pod>` et `kubectl exec -it <pod> -- sh`
-
 ### Déployer une application
 
 Déployer une application sur Kubernetes. Les instructions suivantes utilise [https://gitlab.com/blueur/heig-vd-devops](https://gitlab.com/blueur/heig-vd-devops) mais c'est mieux d'utiliser sa propre version de l'application.
