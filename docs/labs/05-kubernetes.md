@@ -3,7 +3,7 @@
 ## Objectifs
 
 - Estimer son travail
-- Accéder au cluster Kubernetes du cours (Rancher: `rke2.iict-heig-vd.in`)
+- Accéder au cluster Kubernetes du cours (Rancher: `https://rke2.iict-heig-vd.in`)
 - Déployer une application sur Kubernetes
 - Créer un fichier `deployment.yaml` pour déployer l'application
 
@@ -33,7 +33,7 @@
 
 ### Accéder au cluster du cours
 
-> Il est possible de commencer les exercices avec minikube en local, mais le rendu final doit être réalisé sur le cluster Rancher du cours (`rke2.iict-heig-vd.in`).
+> Il est possible de commencer les exercices avec minikube en local, mais le rendu final doit être réalisé sur le cluster Rancher du cours (`https://rke2.iict-heig-vd.in`).
 
 - Suivre les instructions de configuration du cluster du cours : [/docs/tools/kubernetes](/docs/tools/kubernetes)
   - Accéder au réseau HEIG-VD (ou VPN)
