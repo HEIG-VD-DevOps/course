@@ -35,7 +35,7 @@
 
 > Il est possible de commencer les exercices avec minikube en local, mais le rendu final doit être réalisé sur le cluster [Rancher](https://rke2.iict-heig-vd.in) du cours.
 
-- Suivre les instructions de configuration du cluster du cours : [/docs/tools/kubernetes](/docs/tools/kubernetes)
+- Suivre les instructions de configuration du cluster du cours : [/docs/tools/01-kubernetes](/docs/tools/01-kubernetes)
   - Accéder au réseau HEIG-VD (ou VPN)
   - Récupérer le `KubeConfig` depuis Rancher
   - Configurer `kubectl` localement
