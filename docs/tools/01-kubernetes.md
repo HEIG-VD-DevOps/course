@@ -5,9 +5,9 @@
 Il faut être sur le réseau de l'HEIG-VD pour accéder au cluster Kubernetes du cours.  
 Au besoin, utiliser un VPN : [vpn.heig-vd.ch](https://vpn.heig-vd.ch)
 
-- Rancher (login) : [rke2.iict-heig-vd.in](https://rke2.iict-heig-vd.in/dashboard/auth/login?timed-out)
+- Rancher (login) : `https://rke2.iict-heig-vd.in/dashboard/auth/login?timed-out`
   - Se connecter avec le compte HES-SO (AD).
-  - Ouvrir le cluster `iict-students` : [Cluster Explorer](https://rke2.iict-heig-vd.in/dashboard/c/c-m-jksmqh24/explorer#cluster-events)
+  - Ouvrir le cluster `iict-students` : `https://rke2.iict-heig-vd.in/dashboard/c/c-m-jksmqh24/explorer#cluster-events`
 
 ### Kubectl
 
