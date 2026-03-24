@@ -128,7 +128,8 @@ Déployer l'application sur Kubernetes en utilisant le dashboard Rancher.
     spec:
       ingressClassName: nginx
       rules:
-        - http:
+        - host: <vos_initiales>-devops.iict-students.iict-heig-vd.in
+          http:
             paths:
               - path: /?(.*)
                 pathType: ImplementationSpecific
@@ -145,6 +146,9 @@ Déployer l'application sur Kubernetes en utilisant le dashboard Rancher.
                     port:
                       number: 80
     ```
+  - Note : remplacez <vos_initiales> par les initiales d'un membre du groupe ou
+    un nom. Ce n'est pas important, il faut juste que ce soit unique. L'hôte
+    configuré corresponds alors à l'adresse de votre ingress.
   - Cliquer sur `Create`.
   - Vérifier que l'ingress est présent avec `kubectl get ingress`.
 - Tester l'application via l'ingress
