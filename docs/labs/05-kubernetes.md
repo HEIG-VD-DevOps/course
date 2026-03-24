@@ -128,7 +128,7 @@ Déployer l'application sur Kubernetes en utilisant le dashboard Rancher.
     spec:
       ingressClassName: nginx
       rules:
-        - host: \<vos_initiales\>-devops.iict-students.iict-heig-vd.in
+        - host: <vos_initiales>-devops.iict-students.iict-heig-vd.in
           http:
             paths:
               - path: /?(.*)
