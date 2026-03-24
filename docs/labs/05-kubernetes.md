@@ -3,14 +3,14 @@
 ## Objectifs
 
 - Estimer son travail
-- Utiliser minikube
+- Accéder au cluster Kubernetes du cours ([Rancher](https://rke2.iict-heig-vd.in))
 - Déployer une application sur Kubernetes
 - Créer un fichier `deployment.yaml` pour déployer l'application
 
 ## Rendu
 
 - Rapport individuel en Markdown à rendre avant le prochain cours
-  - GitHub Classroom : https://classroom.github.com/a/4Jw9ryIy
+  - GitHub Classroom : [https://classroom.github.com/a/4Jw9ryIy](https://classroom.github.com/a/4Jw9ryIy)
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
 - Délai: 2 semaines
@@ -23,74 +23,105 @@
   - Découper le travail en tâches pour faciliter l'estimation.
 - Une fois terminé, comparer le temps estimé avec le temps réellement passé.
 
+
 | Tâche      | Temps estimé | Temps passé | Commentaire |
 | ---------- | ------------ | ----------- | ----------- |
 | Estimation | 10m          | 15m         | ...         |
 | ...        | ...          | ...         | ...         |
 | Total      | 2h           | 1h30        | ...         |
 
-### Utiliser minikube
 
-- Suivre les instructions sur [minikube](https://minikube.sigs.k8s.io/docs/start/) pour déployer des applications sur votre machine.
-  - Suivre les points suivants:
-    - 2. Start your cluster
-    - 3. Interact with your cluster
-    - 4. Deploy applications
-      - Service
-      - LoadBalancer
-        - Scale le Deployment à 2 replicas et vérifier que les requêtes soient bien réparties entre les deux pods (en y accédant en navigation privée).
-      - Ingress
-- Regarder les logs (au niveau du pod).
-  - Sur le dashboard, sélectionner un pod.
-    - En haut à droite, il y a plusieurs icônes, dont `View logs` et `Exec into pod`.
-  - En ligne de commande, utiliser `kubectl logs` et `kubectl exec` (`kubectl get pods` pour lister les pods).
+### Accéder au cluster du cours
 
+> Il est possible de commencer les exercices avec minikube en local, mais le rendu final doit être réalisé sur le cluster [Rancher](https://rke2.iict-heig-vd.in) du cours.
+
+- Suivre les instructions de configuration du cluster du cours : [/docs/tools/01-kubernetes](/docs/tools/01-kubernetes)
+  - Accéder au réseau HEIG-VD (ou VPN)
+  - Récupérer le `KubeConfig` depuis Rancher
+  - Configurer `kubectl` localement
+  - Définir le namespace de votre groupe par défaut
+- Vérifier les permissions dans votre namespace :
+  - `kubectl get pods`
+  - `kubectl auth can-i create deployment`
+  - `kubectl auth can-i create service`
+  - `kubectl auth can-i create ingress`
 ### Déployer une application
 
-Déployer une application sur Kubernetes. Les instructions suivantes utilise https://gitlab.com/blueur/heig-vd-devops mais c'est mieux d'utiliser sa propre version de l'application.
+Déployer une application sur Kubernetes. Les instructions suivantes utilise [https://gitlab.com/blueur/heig-vd-devops](https://gitlab.com/blueur/heig-vd-devops) mais c'est mieux d'utiliser sa propre version de l'application.
 
 #### GUI
 
-Déployer l'application sur Kubernetes en utilisant le dashboard.
+Déployer l'application sur Kubernetes en utilisant le dashboard Rancher.
 
+- Ouvrir `iict-students` puis aller dans `Workloads` > `Deployments`.
+- Cliquer sur `Create`.
+- Vérifier le `Namespace` sélectionné (namespace de groupe).
+- Créer des composants en type `Deployment`.
 - Déployer le frontend
-  - Cliquer sur le `+` en haut à droite
-    - `Create from form`
-      - App name : `frontend`
-      - Container image : `registry.gitlab.com/blueur/heig-vd-devops/frontend:latest`
-      - Service : `Internal`
-      - Port : `80`
-      - Target port : `80`
-    - Cliquer sur `Deploy`
-  - Accéder à l'application avec `minikube service frontend`
+  - Dans `Deployment > Create` :
+    - `Namespace`: votre namespace de groupe (ex: `test`)
+    - `Name`: `frontend`
+    - `Replicas`: `1`
+  - Dans `Pod > container-0 > General` :
+    - `Container Name`: `container-0` (laisser par défaut)
+    - `Image`: `registry.gitlab.com/blueur/heig-vd-devops/frontend:latest`
+  - Dans `Pod > container-0 > Networking` :
+    - `Service Type`: `Cluster IP`
+    - `Name`: `frontend`
+    - `Private Container Port`: `80`
+    - `Protocol`: `TCP`
+  - Cliquer sur `Create`
+  - Vérifier que `Deployment/frontend` devient `Ready`
+  - Pour un test rapide avant ingress : `kubectl port-forward svc/frontend 8080:80`
+    - Option navigateur : ouvrir http://127.0.0.1:8080
 - Déployer une base de donnée
-  - App name : `database`
-  - Container image : `postgres:16-alpine`
-  - Service : `Internal`
-  - Port : `5432`
-  - Target port : `5432`
-  - Cliquer sur `Show advanced options`
-    - Environment variables
-      - `POSTGRES_PASSWORD` : `postgres`
-  - Cliquer sur `Deploy`
+  - Dans `Deployment > Create` :
+    - `Namespace`: votre namespace de groupe (ex: `test`)
+    - `Name`: `database`
+    - `Replicas`: `1`
+  - Dans `Pod > container-0 > General` :
+    - `Container Name`: `container-0` (laisser par défaut)
+    - `Image`: `postgres:16-alpine`
+  - Dans `Pod > container-0 > Networking` :
+    - Click "Add Port or Service"
+    - `Service Type`: `Cluster IP`
+    - `Name`: `database`
+    - `Private Container Port`: `5432`
+    - `Protocol`: `TCP`
+  - Dans `Pod > container-0 > Environment Variables` :
+    - Click on "Add Valiable"
+    - Ajouter `POSTGRES_PASSWORD=postgres`
+  - Cliquer sur `Create`
+  - Vérifier que `Deployment/database` devient `Ready`
 - Déployer le backend
-  - App name : `backend`
-  - Container image : `registry.gitlab.com/blueur/heig-vd-devops/backend:latest`
-  - Service : `Internal`
-  - Port : `80`
-  - Target port : `80`
-  - Cliquer sur `Show advanced options`
-    - Environment variables
-      - `POSTGRES_HOST` : `database`
-      - `POSTGRES_PASSWORD` : `postgres`
-      - `ROOT_PATH`: `/api`
+  - Dans `Deployment > Create` :
+    - `Namespace`: votre namespace de groupe
+    - `Name`: `backend`
+    - `Replicas`: `1`
+  - Dans `Pod > container-0 > General` :
+    - `Container Name`: `container-0` (laisser par défaut)
+    - `Image`: `registry.gitlab.com/blueur/heig-vd-devops/backend:latest`
+  - Dans `Pod > container-0 > Networking` :
+    - `Service Type`: `Cluster IP`
+    - `Name`: `backend`
+    - `Private Container Port`: `80`
+    - `Protocol`: `TCP`
+  - Dans `Pod > container-0 > Environment Variables` :
+    - Ajouter `POSTGRES_HOST=database`
+    - Ajouter `POSTGRES_PASSWORD=postgres`
+    - Ajouter `ROOT_PATH=/api`
+  - Cliquer sur `Create`
+  - Vérifier que `Deployment/backend` devient `Ready`
 - Créer un ingress
-  - `Create from input`
+  - Ouvrir `Service Discovery` > `Ingresses` dans votre namespace de groupe.
+  - Cliquer sur `Create` puis `Edit as YAML`
+  - Coller le manifeste suivant :
     ```yaml
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
       name: heig-vd-devops-ingress
+      namespace: <your namespace>
       annotations:
         nginx.ingress.kubernetes.io/use-regex: "true"
         nginx.ingress.kubernetes.io/rewrite-target: /$1
@@ -114,16 +145,34 @@ Déployer l'application sur Kubernetes en utilisant le dashboard.
                     port:
                       number: 80
     ```
-- Accéder à l'application sur http://127.0.0.1/
+  - Cliquer sur `Create`.
+  - Vérifier que l'ingress est présent avec `kubectl get ingress`.
+- Tester l'application via l'ingress
+  - Vérifier l'ingress : `kubectl get ingress`
+  - Tester via l'adresse ingress affichée :
+    - Frontend : `curl -i http://<INGRESS_ADDRESS>/`
+    - Backend : `curl -i http://<INGRESS_ADDRESS>/api/docs`
+ 
+- Valider la répartition de charge sur 2 replicas
+  - Scale le deployment frontend à 2 replicas :
+    - `kubectl scale deployment/frontend --replicas=2`
+    - `kubectl get deployment frontend`
+    - Vérifier `READY 2/2` et `AVAILABLE 2`.
+  - Envoyer du trafic vers l'ingress :
+    - `for i in {1..30}; do curl -s http://<INGRESS_ADDRESS>/ > /dev/null; done`
+    - Option navigateur : ouvrir `http://<INGRESS_ADDRESS>/` puis rafraîchir la page plusieurs fois.
+  - Lister les pods frontend :
+    - `kubectl get pods`
+  - Vérifier les logs sur les deux pods frontend (remplacer par vos noms de pods) :
+    - `kubectl logs <frontend-pod-1> --tail=50`
+    - `kubectl logs <frontend-pod-2> --tail=50`
+  - Validation attendue : les deux pods affichent des requêtes `GET /`.
 
 #### CLI
 
-- Suivre les instructions pour créer une application stateless : https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/
-- Suivre les instructions pour créer une application stateful : https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
+- Suivre les instructions pour créer une application stateless : [https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/)
+- Suivre les instructions pour créer une application stateful : [https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/](https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/)
 - Créer un fichier `deployment.yaml` à la racine de votre repository qui permet de déployer votre application sur Kubernetes.
   - Il doit être possible de déployer ou mettre à jour toute l'application avec `kubectl apply -f deployment.yaml`
 - Déployer votre application sur un nouveau [namespace](https://kubernetes.io/docs/tasks/administer-cluster/namespaces/)
 
-### Cluster du cours
-
-Déployer son application sur le [cluster Kubernetes du cours](/docs/tools/kubernetes) dans le namespace `<votre-nom>`.
