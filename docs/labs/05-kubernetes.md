@@ -146,7 +146,7 @@ Déployer l'application sur Kubernetes en utilisant le dashboard Rancher.
                     port:
                       number: 80
     ```
-  - Note : remplacez <vos_initiales> par les initiales d'un membre du groupe ou
+  - Note : remplacez \<vos_initiales\> par les initiales d'un membre du groupe ou
     un nom. Ce n'est pas important, il faut juste que ce soit unique. L'hôte
     configuré corresponds alors à l'adresse de votre ingress.
   - Cliquer sur `Create`.
