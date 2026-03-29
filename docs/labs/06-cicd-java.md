@@ -33,7 +33,7 @@
 ### Prérequis
 
 - [Maven](https://maven.apache.org/)
-- [Java 17](https://adoptium.net/fr/temurin/releases/?version=17) (ou supérieur)
+- [Java 21](https://adoptium.net/fr/temurin/releases?version=21&os=any&arch=any) (ou supérieur)
 
 ### Préparation
 
@@ -48,7 +48,7 @@
 
 - Conteneuriser l'application avec Docker.
   - Quelle image de base ? Pourquoi ?
-  - Utiliser la version 17 de Java.
+  - Utiliser la version 21 de Java.
 - Configurer Docker Compose de sorte que `docker compose up` lance l'application sur une nouvelle machine.
 - Configurer la CI/CD sur GitLab.
   - Pour chaque commit sur n'importe quelle branche :
