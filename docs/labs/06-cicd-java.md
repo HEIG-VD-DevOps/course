@@ -39,7 +39,7 @@
 
 ### Préparation
 
-- Fork le repository suivant : [https://gitlab.com/heig-vd-dop2/dop-java](https://gitlab.com/heig-vd-dop2/dop-java)
+- Fork le repository starter suivant : [https://gitlab.com/heig-vd-dop2/dop-java-start](https://gitlab.com/heig-vd-dop2/dop-java-start)
   - Renommer le projet en `dop-java`.
 - Cloner votre repository sur votre machine.
 - Empaqueter l'application avec Maven : `mvn package`
