@@ -10,7 +10,7 @@
 ## Rendu
 
 - Rapport individuel en Markdown à rendre avant le prochain cours
-  - GitHub Classroom : https://classroom.github.com/a/tRp_AJvL
+  - GitHub Classroom : [https://classroom.github.com/a/tRp_AJvL](https://classroom.github.com/a/tRp_AJvL)
   - Nom du fichier : `report.md` à la racine du répertoire
   - Avec le lien vers la Merge Request GitLab
 - Délai: 2 semaines
@@ -37,12 +37,12 @@
 
 ### Préparation
 
-- Fork le repository suivant : https://gitlab.com/blueur/heig-vd-devops-java
+- Fork le repository suivant : [https://gitlab.com/blueur/heig-vd-devops-java](https://gitlab.com/blueur/heig-vd-devops-java)
   - Renommer le projet en `dop-java`.
 - Cloner votre repository sur votre machine.
 - Empaqueter l'application avec Maven : `mvn package`
 - Lancer l'application : `mvn spring-boot:run`
-  - L'application est accessible sur http://127.0.0.1:8080/
+  - L'application est accessible sur [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
 ### Application des principes DevOps
 
@@ -65,29 +65,36 @@
 
 - Indiquer dans votre rapport votre démarche ainsi que les difficultés rencontrées.
 - Expliquer tous les choix techniques que vous avez fait (sauf ceux indiqués).
-  -Expliquer comment utiliser les outils de CI/CD dans GitLab (unit test report, code coverage, SAST, ...).
+- Expliquer comment utiliser les outils de CI/CD dans GitLab (unit test report, code coverage, SAST, ...).
 
 ## Evaluation
 
 L'évaluation se porte sur les critères suivants :
 
-- Organisation
-  - [ ] **La Merge Request est correctement créée et dans les temps.**
-  - [ ] **Le rapport est complet et synthétique.**
-- Docker
-  - [ ] **Le Docker Compose est fonctionnel.**
-  - [ ] _Les bonnes pratiques sont appliquées pour Docker & Docker Compose._
-- CI/CD
-  - [ ] **La pipeline CI/CD est fonctionnelle.**
-  - [ ] _Fonctionnalités supplémentaires pour la CI/CD (code coverage, SAST, ...)._
-  - [ ] _Les bonnes pratiques sont appliquées pour la CI/CD._
-- Kubernetes
-  - [ ] **Le déploiement Kubernetes est fonctionnel.**
-  - [ ] _Les bonnes pratiques sont appliquées pour Kubernetes._
+### Organisation
 
-|            Note            | &nbsp;1&nbsp; | &nbsp;2&nbsp; | 2.5 | &nbsp;3&nbsp; | 3.5 | &nbsp;4&nbsp; | 4.5 | &nbsp;5&nbsp; | 5.5 | &nbsp;6&nbsp; |
-| :------------------------: | :-----------: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: |
-| Nombre de critères validés |       0       |       1       |  2  |       3       |  4  |       5       |  6  |       7       |  8  |       9       |
+- [ ] **La Merge Request est correctement créée et dans les temps.**
+- [ ] **Le rapport est complet et synthétique.**
+
+### Docker
+
+- [ ] **Le Docker Compose est fonctionnel.**
+- [ ] *Les bonnes pratiques sont appliquées pour Docker & Docker Compose.*
+
+### CI/CD
+
+- [ ] **La pipeline CI/CD est fonctionnelle.**
+- [ ] *Fonctionnalités supplémentaires pour la CI/CD (code coverage, SAST, ...).*
+- [ ] *Les bonnes pratiques sont appliquées pour la CI/CD.*
+
+### Kubernetes
+
+- [ ] **Le déploiement Kubernetes est fonctionnel.**
+- [ ] *Les bonnes pratiques sont appliquées pour Kubernetes.*
+
+| Note                       | 1   | 2   | 2.5 | 3   | 3.5 | 4   | 4.5 | 5   | 5.5 | 6   |
+| -------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Nombre de critères validés | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   |
 
 - **En gras** : critères principaux.
-- _En italique_ : critères secondaires.
+- *En italique* : critères secondaires.
