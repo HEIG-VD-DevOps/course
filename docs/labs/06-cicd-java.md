@@ -33,22 +33,22 @@
 ### Prérequis
 
 - [Maven](https://maven.apache.org/)
-- [Java 17](https://adoptium.net/fr/temurin/releases/?version=17) (ou supérieur)
+- [Java 21](https://adoptium.net/fr/temurin/releases/?version=21) (ou supérieur)
 
 ### Préparation
 
-- Fork le repository suivant : https://gitlab.com/blueur/heig-vd-devops-java
+- Fork le repository starter suivant : [https://gitlab.com/heig-vd-dop2/dop-java-start](https://gitlab.com/heig-vd-dop2/dop-java-start)
   - Renommer le projet en `dop-java`.
 - Cloner votre repository sur votre machine.
 - Empaqueter l'application avec Maven : `mvn package`
 - Lancer l'application : `mvn spring-boot:run`
-  - L'application est accessible sur http://127.0.0.1:8080/
+  - L'application est accessible sur http://127.0.0.1:8080
 
 ### Application des principes DevOps
 
 - Conteneuriser l'application avec Docker.
   - Quelle image de base ? Pourquoi ?
-  - Utiliser la version 17 de Java.
+  - Utiliser la version 21 de Java.
 - Configurer Docker Compose de sorte que `docker compose up` lance l'application sur une nouvelle machine.
 - Configurer la CI/CD sur GitLab.
   - Pour chaque commit sur n'importe quelle branche :
@@ -65,7 +65,7 @@
 
 - Indiquer dans votre rapport votre démarche ainsi que les difficultés rencontrées.
 - Expliquer tous les choix techniques que vous avez fait (sauf ceux indiqués).
-  -Expliquer comment utiliser les outils de CI/CD dans GitLab (unit test report, code coverage, SAST, ...).
+- Expliquer comment utiliser les outils de CI/CD dans GitLab (unit test report, code coverage, SAST, ...).
 
 ## Evaluation
 
