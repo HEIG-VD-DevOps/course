@@ -1,5 +1,12 @@
 # Extreme Carpaccio
 
+## Rendu
+
+- Code du client à rendre sur GitHub Classroom
+- GitHub Classroom : https://classroom.github.com/a/gzKvzfVl
+
+## Tâches
+
 - Former des équipes de 2 à 4 personnes.
 - Lire les instructions sur https://github.com/dlresende/extreme-carpaccio/blob/master/clients/README.md
 - Obtenir son adresse IP.
@@ -13,3 +20,8 @@
   - Répartir les tâches entre les membres de l'équipe et définir les rôles.
   - Choisir un langage de programmation parmi [ceux supportés](https://github.com/dlresende/extreme-carpaccio/tree/master/clients).
 - Implémenter un client qui répond aux spécifications.
+- Après l'exercice, ajouter un court retour d'expérience dans votre rendu :
+  - Ce qui a bien fonctionné.
+  - Ce qui pourrait être amélioré.
+  - Vos feedbacks sur l'exercice.
+  - Vos principaux apprentissages.
