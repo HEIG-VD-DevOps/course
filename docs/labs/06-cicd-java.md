@@ -24,13 +24,11 @@
   - Découper le travail en tâches pour faciliter l'estimation.
 - Une fois terminé, comparer le temps estimé avec le temps réellement passé.
 
-
 | Tâche      | Temps estimé | Temps passé | Commentaire |
 | ---------- | ------------ | ----------- | ----------- |
 | Estimation | 10m          | 15m         | ...         |
 | ...        | ...          | ...         | ...         |
 | Total      | 2h           | 1h30        | ...         |
-
 
 ### Prérequis
 
@@ -44,7 +42,7 @@
 - Cloner votre repository sur votre machine.
 - Empaqueter l'application avec Maven : `mvn package`
 - Lancer l'application : `mvn spring-boot:run`
-  - L'application est accessible sur [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+  - L'application est accessible sur `127.0.0.1:8080`
 
 ### Application des principes DevOps
 
@@ -73,25 +71,23 @@
 
 L'évaluation se porte sur les critères suivants :
 
-- Organisation
-  - **La Merge Request est correctement créée et dans les temps.**
-  - **Le rapport est complet et synthétique.**
-- Docker
-  - **Le Docker Compose est fonctionnel.**
-  - *Les bonnes pratiques sont appliquées pour Docker & Docker Compose.*
-- CI/CD
-  - **La pipeline CI/CD est fonctionnelle.**
-  - *Fonctionnalités supplémentaires pour la CI/CD (code coverage, SAST, ...).*
-  - *Les bonnes pratiques sont appliquées pour la CI/CD.*
-- Kubernetes
-  - **Le déploiement Kubernetes est fonctionnel.**
-  - *Les bonnes pratiques sont appliquées pour Kubernetes.*
-
+- [ ] Organisation
+  - [ ] **La Merge Request est correctement créée et dans les temps.**
+  - [ ] **Le rapport est complet et synthétique.**
+- [ ] Docker
+  - [ ] **Le Docker Compose est fonctionnel.**
+  - [ ] *Les bonnes pratiques sont appliquées pour Docker & Docker Compose.*
+- [ ] CI/CD
+  - [ ] **La pipeline CI/CD est fonctionnelle.**
+  - [ ] *Fonctionnalités supplémentaires pour la CI/CD (code coverage, SAST, ...).*
+  - [ ] *Les bonnes pratiques sont appliquées pour la CI/CD.*
+- [ ] Kubernetes
+  - [ ] **Le déploiement Kubernetes est fonctionnel.**
+  - [ ] *Les bonnes pratiques sont appliquées pour Kubernetes.*
 
 | Note                       | 1   | 2   | 2.5 | 3   | 3.5 | 4   | 4.5 | 5   | 5.5 | 6   |
 | -------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Nombre de critères validés | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   |
-
 
 - **En gras** : critères principaux.
 - *En italique* : critères secondaires.
