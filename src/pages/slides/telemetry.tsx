@@ -152,19 +152,19 @@ export default function Telemetry(props: { embedded?: boolean }) {
       </Section>
       <Section level={2} title="Service Discovery">
         <Image
-          src="https://www.f5.com/content/dam/www/blogs/2015/Richardson-microservices-part4-1_difficult-service-discovery.png"
+          src="/course/img/service-discovery.png"
           url="https://www.f5.com/company/blog/nginx/service-discovery-in-a-microservices-architecture"
         />
       </Section>
       <Section level={3} title="Client-Side Discovery">
         <Image
-          src="https://www.f5.com/content/dam/www/blogs/2015/Richardson-microservices-part4-2_client-side-pattern.png"
+          src="/course/img/client-side-discovery.png"
           url="https://www.f5.com/company/blog/nginx/service-discovery-in-a-microservices-architecture"
         />
       </Section>
       <Section level={3} title="Server-Side Discovery">
         <Image
-          src="https://www.f5.com/content/dam/www/blogs/2015/Richardson-microservices-part4-3_server-side-pattern.png"
+          src="/course/img/server-side-discovery.png"
           url="https://www.f5.com/company/blog/nginx/service-discovery-in-a-microservices-architecture"
         />
       </Section>

@@ -15,7 +15,7 @@ export default function Gitops(props: { embedded?: boolean }) {
       <Section level={3} title="Historique GitOps">
         <Image
           src="/course/img/gitops/Short-Line-Time-backWhite-2022v2.png"
-          url="https://www.weave.works/technologies/gitops/"
+          url="https://docs.gitops.weaveworks.org/docs/intro-weave-gitops/"
         />
       </Section>
       <Section level={3} title="4 Principes du GitOps">
