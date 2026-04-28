@@ -123,7 +123,7 @@ Déployer EFK sur Kubernetes : https://docs.fluentd.org/container-deployment/kub
 
 :::note Adaptations du manifest
 
-Le manifest du tutoriel nécessite plusieurs adaptations pour fonctionner sur le cluster du cours. Consulter la liste des modifications : [fluentd-daemonset-drift.md](https://github.com/Ovich/DOP/blob/main/labos/lab08-logs/k8s/fluentd-daemonset-drift.md)
+Le manifest du tutoriel nécessite plusieurs adaptations pour fonctionner sur le cluster du cours. Consulter la liste des modifications : [Adaptations du DaemonSet Fluentd](../reference/08-logs-fluentd-daemonset-adaptations.md)
 
 :::
 
