@@ -121,6 +121,12 @@ Créer un tableau de bord dans Kibana :
 
 Déployer EFK sur Kubernetes : https://docs.fluentd.org/container-deployment/kubernetes
 
+:::note Adaptations du manifest
+
+Le manifest du tutoriel nécessite plusieurs adaptations pour fonctionner sur le cluster du cours. Consulter la liste des modifications : [fluentd-daemonset-drift.md](https://github.com/Ovich/DOP/blob/main/labos/lab08-logs/k8s/fluentd-daemonset-drift.md)
+
+:::
+
 ### Bonus : Ajouter Metricbeat sur Docker Compose
 
 https://www.elastic.co/guide/en/beats/metricbeat/current/running-on-docker.html
