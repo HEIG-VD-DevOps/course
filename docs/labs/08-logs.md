@@ -119,7 +119,28 @@ Créer un tableau de bord dans Kibana :
 
 ### Bonus : EFK sur Kubernetes
 
+:::note Prérequis
+
+Ce bonus nécessite des permissions RBAC au niveau cluster (lecture des pods et namespaces par le DaemonSet Fluentd). Ces permissions ne sont pas disponibles sur le cluster du cours. **Réaliser ce bonus sur un cluster local avec minikube.**
+
+- Installation et configuration de minikube : [Minikube](../tools/02-minikube.md)
+- Le tutoriel ne fournit pas de manifest Elasticsearch. Réutiliser le manifest créé lors du lab (adapté pour Kubernetes) avec le service nommé `elasticsearch-logging` sur le port `9200`.
+
+:::
+
 Déployer EFK sur Kubernetes : https://docs.fluentd.org/container-deployment/kubernetes
+
+:::tip Validation
+
+Utiliser `kubectl port-forward` pour accéder aux services depuis le navigateur :
+
+```bash
+kubectl port-forward service/elasticsearch-logging 9200:9200 -n <namespace>
+```
+
+Vérifier que l'index `logstash-YYYY.MM.DD` est présent : `http://localhost:9200/_cat/indices?v`
+
+:::
 
 ### Bonus : Ajouter Metricbeat sur Docker Compose
 
