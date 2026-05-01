@@ -51,6 +51,12 @@ Observer les endpoints `/metrics` de :
 
 Rafraîchir la page des métriques.
 
+:::tip Exemple
+
+https://gitlab.com/heig-vd-dop2/lab09-prometheus-example
+
+:::
+
 :::info[Question rapport]
 
 Expliquer le fonctionnement de Prometheus :
@@ -65,7 +71,7 @@ Expliquer le fonctionnement de Prometheus :
 
 ### Instrumenter une application Python
 
-- Reprendre votre application [HEIG-VD DevOps](https://gitlab.com/blueur/heig-vd-devops) et ajoutez des métriques au backend
+- Reprendre votre application DOP-Python et ajoutez des métriques au backend
 - Utiliser https://github.com/trallnag/prometheus-fastapi-instrumentator
 - Vérifier vos métriques avec http://localhost/api/metrics
 - Ajouter Prometheus à votre Docker Compose
@@ -77,10 +83,9 @@ Utiliser les profiles pour activer/désactiver les services liés à l'observabi
 
 :::
 
-:::tip Exemples
+:::tip Exemple
 
-https://github.com/blueur/prometheus  
-https://gitlab.com/blueur/heig-vd-devops/-/tree/feature/instrumentation
+https://gitlab.com/heig-vd-dop2/lab09-instrumentation-example
 
 :::
 
@@ -102,5 +107,5 @@ Pour collecter les métriques de Docker avec Prometheus : https://docs.docker.co
 
 ## Références
 
-- https://github.com/blueur/prometheus
-- https://gitlab.com/blueur/heig-vd-devops/-/tree/feature/instrumentation
+- https://gitlab.com/heig-vd-dop2/lab09-prometheus-example
+- https://gitlab.com/heig-vd-dop2/lab09-instrumentation-example
