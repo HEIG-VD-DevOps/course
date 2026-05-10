@@ -51,7 +51,7 @@ Suivre le scénario suivant : https://opentelemetry.io/docs/demo/scenarios/recom
 
 ### Instrumenter FastAPI (+ PostgreSQL)
 
-Reprendre votre projet [DOP Python](https://gitlab.com/blueur/heig-vd-devops) et instrumenter le backend avec OpenTelemetry
+Reprendre votre projet DOP Python et instrumenter le backend avec OpenTelemetry
 
 - Ajouter les dépendances suivantes : `poetry add opentelemetry-instrumentation-fastapi opentelemetry-exporter-otlp`
   - [opentelemetry-instrumentation-fastapi](https://opentelemetry-python-contrib.readthedocs.io/en/latest/instrumentation/fastapi/fastapi.html) pour automatiquement instrumenter FastAPI
@@ -76,11 +76,11 @@ FastAPIInstrumentor.instrument_app(app)
 - Pour afficher les spans dans la console (debug), vous pouvez ajouter le [ConsoleSpanExporter](https://opentelemetry-python.readthedocs.io/en/latest/sdk/trace.export.html#opentelemetry.sdk.trace.export.ConsoleSpanExporter) :
 
 ```python
-from opentelemetry.sdk.trace.export import ConsoleSpanExporter
+from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
 
 ...
 
-trace.get_tracer_provider().add_span_processor(ConsoleSpanExporter())
+trace.get_tracer_provider().add_span_processor(BatchSpanProcessor(ConsoleSpanExporter()))
 ```
 
 - Ajouter les variables d'environnement suivantes :
@@ -88,6 +88,25 @@ trace.get_tracer_provider().add_span_processor(ConsoleSpanExporter())
   - `OTEL_EXPORTER_OTLP_ENDPOINT`: `http://jaeger:4317` pour la destination des traces (Jaeger ou OpenTelemetry Collector)
 
 Ajouter [Jaeger](https://www.jaegertracing.io/docs/1.52/deployment/#all-in-one) au Docker Compose
+
+:::caution Version Traefik
+
+Si vous utilisez **Docker Engine 29.x**, vérifiez que votre `compose.yml` utilise **Traefik v2.11+** — les versions antérieures produisent une erreur silencieuse et aucune route ne fonctionne.
+
+```yaml
+reverse-proxy:
+  image: traefik:v2.11
+```
+
+Sur **Docker Desktop Windows**, activez également "Expose daemon on tcp://localhost:2375 without TLS" dans les paramètres Docker Desktop, puis ajoutez à la commande Traefik :
+
+```yaml
+command:
+  - "--providers.docker=true"
+  - "--providers.docker.endpoint=tcp://host.docker.internal:2375"
+```
+
+:::
 
 - On a besoin d'activer OpenTelemetry en ajoutant la variable d'environnement `COLLECTOR_OTLP_ENABLED=true`
 - Jaeger UI: http://localhost:16686
@@ -102,7 +121,9 @@ receivers:
   otlp:
     protocols:
       grpc:
+        endpoint: 0.0.0.0:4317
       http:
+        endpoint: 0.0.0.0:4318
 
 processors:
   batch:
@@ -121,12 +142,12 @@ service:
       exporters: [otlp/jaeger]
 ```
 
-- Le Collector est un adaptateur qui permet de recevoir des traces de différents formats et de les exporter vers différents formats. Dirigez les traces du backend vers le Collector pour vérifier que Jaeger les reçoit bien aussi.
+- Le Collector est un adaptateur qui permet de recevoir des traces de différents formats et de les exporter vers différents formats. Dirigez les traces du backend vers le Collector pour vérifier que Jaeger les reçoit bien aussi. Mettez à jour la variable d'environnement du backend : `OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317`
 
 En bonus, instrumenter la database PostgreSQL avec le [Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/postgresqlreceiver/README.md)
 
 - Configurer l'exportation des metrics vers [Prometheus](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/prometheusexporter)
-- Vous pourrez observer les metrics `postgresql_*` dans Prometheus (et Grafana), par exemple `postgresql_commits_total` ou `postgresql_rows`
+- Vous pourrez observer les metrics `postgresql_*` dans Prometheus, par exemple `postgresql_commits_total` ou `postgresql_rows`
 
 :::info[Question rapport]
 
@@ -136,13 +157,13 @@ Dans quels cas le collector est en mode [pull ou push](https://www.alibabacloud.
 
 :::tip Exemple
 
-https://gitlab.com/blueur/heig-vd-devops/-/tree/feature/instrumentation
+https://gitlab.com/heig-vd-dop2/lab10-traces-example
 
 :::
 
 ## Références
 
-- https://gitlab.com/blueur/heig-vd-devops/-/tree/feature/instrumentation
+- https://gitlab.com/heig-vd-dop2/lab10-traces-example
 - https://medium.com/@rickymondal/distributed-tracing-with-opentelemetry-91b76b22abf9
 - https://www.baeldung.com/spring-boot-opentelemetry-setup
 - https://tillepille.io/posts/otel-fastapi/
