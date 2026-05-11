@@ -38,10 +38,10 @@ Déployer la démonstration suivante sur votre machine : https://opentelemetry.i
 
 Une version de la démonstration est déployée sur notre cluster Kubernetes :
 
-- Web store: http://otel-demo.k8s.heig-vd.blueur.com/
-- Grafana: http://otel-demo.k8s.heig-vd.blueur.com/grafana
-- Load Generator UI: http://otel-demo.k8s.heig-vd.blueur.com/loadgen/
-- Jaeger UI: http://otel-demo.k8s.heig-vd.blueur.com/jaeger/ui
+- Web store: http://otel-demo.iict-students.iict-heig-vd.in/
+- Grafana: http://otel-demo.iict-students.iict-heig-vd.in/grafana
+- Load Generator UI: http://otel-demo.iict-students.iict-heig-vd.in/loadgen/
+- Jaeger UI: http://otel-demo.iict-students.iict-heig-vd.in/jaeger/ui
 
 https://opentelemetry.io/docs/demo/kubernetes-deployment/
 
