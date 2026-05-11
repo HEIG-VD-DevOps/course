@@ -51,6 +51,16 @@ Suivre le scénario suivant : https://opentelemetry.io/docs/demo/scenarios/recom
 
 ### Instrumenter FastAPI (+ PostgreSQL)
 
+:::info Projet de départ
+
+Vous pouvez soit continuer sur votre propre projet DOP Python, soit utiliser le projet de départ fourni :
+
+**https://gitlab.com/heig-vd-dop2/lab-10-dop-python-starter**
+
+Si vous utilisez le projet de départ, **forkez-le** dans votre espace GitLab personnel avant de commencer, puis travaillez sur votre fork.
+
+:::
+
 Reprendre votre projet DOP Python et instrumenter le backend avec OpenTelemetry
 
 - Ajouter les dépendances suivantes : `poetry add opentelemetry-instrumentation-fastapi opentelemetry-exporter-otlp`
