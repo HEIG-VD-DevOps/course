@@ -137,9 +137,11 @@ L'évaluation se porte sur les critères suivants :
 - Bonus
   - _Le bonus peut rattraper des points perdus sur un autre critère de sa catégorie._
 
-|            Note            | &nbsp;1&nbsp; | 1.5 | &nbsp;2&nbsp; | 2.5 | &nbsp;3&nbsp; | 3.5 | &nbsp;4&nbsp; | 4.5 | &nbsp;5&nbsp; | 5.5 | &nbsp;6&nbsp; |
-| :------------------------: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: |
-|         Critère n°         |       —       |  1  |       2       |  3  |       4       |  4  |       5       |  6  |       7       |  8  |       9       |
+**Note = 1 + points validés** (min : 1 — max : 6)
+
+| Critère |  1  |  2  |  3  |   4   |  5  |  6  |  7  |  8  |  9  | Total |
+| :-----: | :-: | :-: | :-: | :---: | :-: | :-: | :-: | :-: | :-: | :---: |
+| Points  | 0.5 | 0.5 | 0.5 | **1.0** | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | **5.0** |
 
 - **En gras** : critères principaux.
 - _En italique_ : critères secondaires / bonus.
