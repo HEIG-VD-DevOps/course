@@ -119,28 +119,27 @@ Bonus :
 L'évaluation se porte sur les critères suivants :
 
 - Organisation
-  - [ ] **Le rendu est correct et dans les temps.**
-  - [ ] **Documentation (README.md) des configurations manuelles, de l'application et des APMs.**
-  - [ ] _Le rapport (report.md) est complet (explication de la démarche et des choix techniques) et synthétique._
+  - [ ] 1. **Le rendu est correct et dans les temps.**
+  - [ ] 2. **Documentation (README.md) des configurations manuelles, de l'application et des APMs.**
+  - [ ] 3. _Le rapport (report.md) est complet (explication de la démarche et des choix techniques) et synthétique._
 - Docker
-  - [ ] **Bonne dockerisation & Utilisation des profiles** (_Observez les feedbacks fournis des labos précédents._)
+  - [ ] 4. **Bonne dockerisation & Utilisation des profiles** _(vaut 2 critères — observez les feedbacks des labos précédents)_
 - Logs
-  - [ ] **Visualisation des logs de l'application dans Kibana.**
-  - [ ] _Ajout des logs de tous les services & Stacktraces regroupées & Dashboard_
+  - [ ] 5. **Visualisation des logs de l'application dans Kibana.**
+  - [ ] 6. _Ajout des logs de tous les services & Stacktraces regroupées & Dashboard_
 - Métriques
-  - [ ] **Visualisation des métriques de l'application dans Grafana.**
-  - [ ] _Ajout des métriques de tous les services_
+  - [ ] 7. **Visualisation des métriques de l'application dans Grafana.**
+  - [ ] 8. _Ajout des métriques de tous les services_
   - [ ] _Bonus : Gauge et Sums_
 - Traces
-  - [ ] **Visualisation des traces de l'application dans Jaeger.**
+  - [ ] 9. **Visualisation des traces de l'application dans Jaeger.**
   - [ ] _Bonus : Visualisation des traces dans Zipkin & Comparaison avec Zipkin_
 - Bonus
-  - [ ] _Autre bonus_
   - _Le bonus peut rattraper des points perdus sur un autre critère de sa catégorie._
 
 |            Note            | &nbsp;1&nbsp; | 1.5 | &nbsp;2&nbsp; | 2.5 | &nbsp;3&nbsp; | 3.5 | &nbsp;4&nbsp; | 4.5 | &nbsp;5&nbsp; | 5.5 | &nbsp;6&nbsp; |
 | :------------------------: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: | :-: | :-----------: |
-| Nombre de critères validés |       0       |  1  |       2       |  3  |       4       |  5  |       6       |  7  |       8       |  9  |      10       |
+|         Critère n°         |       —       |  1  |       2       |  3  |       4       |  4  |       5       |  6  |       7       |  8  |       9       |
 
 - **En gras** : critères principaux.
 - _En italique_ : critères secondaires / bonus.
