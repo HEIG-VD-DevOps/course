@@ -123,8 +123,7 @@ L'évaluation se porte sur les critères suivants :
   - [ ] **Documentation (README.md) des configurations manuelles, de l'application et des APMs.**
   - [ ] _Le rapport (report.md) est complet (explication de la démarche et des choix techniques) et synthétique._
 - Docker
-  - [ ] **Bonne dockerisation & Utilisation des profiles**
-  - _Observez les feedbacks fournis des labos précédents._
+  - [ ] **Bonne dockerisation & Utilisation des profiles** (_Observez les feedbacks fournis des labos précédents._)
 - Logs
   - [ ] **Visualisation des logs de l'application dans Kibana.**
   - [ ] _Ajout des logs de tous les services & Stacktraces regroupées & Dashboard_
