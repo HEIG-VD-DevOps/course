@@ -33,7 +33,9 @@
 
 ### Mise en place
 
-Ce projet reprend [demotory](https://github.com/blueur/demotory) qui est le point de départ sur GitHub Classroom.
+- **Forker** le dépôt de départ sur GitLab : [dop-demotory-starter](https://gitlab.com/heig-vd-dop2/dop-demotory-starter)
+  - Sur la page du projet, cliquer sur **Fork** (en haut à droite) et choisir votre espace de nommage personnel.
+  - Travailler sur votre fork — ne pas cloner directement le dépôt original.
 
 ```bash
 mvn spring-boot:run
