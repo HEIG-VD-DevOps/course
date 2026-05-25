@@ -17,4 +17,4 @@
 | 14 | 2026-05-26 | [Ingénierie de la fiabilité des sites](/docs/lessons/sre) | [Observabilité](/docs/labs/observability) (**noté**) | |
 | 15 | 2026-06-02 | [Présentation](/docs/presentation) (**noté**) | [Présentation](/docs/presentation) (**noté**) | Lu 01 juin 23:59 rendu Labo Observabilité |
 | 16 | 2026-06-09 | [Présentation](/docs/presentation) (**noté**) | Révision |  |
-| — | 2026-06-XX | [Examen écrit](/docs/exam) (**noté**) | — | |
+| — | 2026-06-23 | [Examen écrit](/docs/exam) (**noté**) | — | |
