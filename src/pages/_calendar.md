@@ -15,6 +15,6 @@
 | 12 | 2026-05-12 | [Contrôle continu 2](/docs/assessment#control-continu-2) (**noté**) | [Traces](/docs/labs/traces) | Contrôle continu 2 noté |
 | 13 | 2026-05-19 | [Ingénierie du chaos](/docs/lessons/chaos) | [Observabilité](/docs/labs/observability) (**noté**) | |
 | 14 | 2026-05-26 | [Ingénierie de la fiabilité des sites](/docs/lessons/sre) | [Observabilité](/docs/labs/observability) (**noté**) | |
-| 15 | 2026-06-02 | [Présentation](/docs/presentation) (**noté**) | [Présentation](/docs/presentation) (**noté**) | Lu 01 juin 23:59 rendu Labo Observabilité |
-| 16 | 2026-06-09 | [Présentation](/docs/presentation) (**noté**) | Révision |  |
+| 15 | 2026-06-02 | [Préparation workshop](/docs/workshop) (**noté**) | [Préparation workshop](/docs/workshop) (**noté**) | Lu 01 juin 23:59 rendu Labo Observabilité |
+| 16 | 2026-06-09 | [Présentation workshop](/docs/workshop) (**noté**) | [Présentation workshop](/docs/workshop) (**noté**) |  |
 | — | 2026-06-23 | [Examen écrit](/docs/exam) (**noté**) | — | |
